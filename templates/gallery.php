@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat|Cardo' rel='stylesheet' type='text/css'>
     <style media="screen">
 
 /* gallery styling */
@@ -81,7 +82,7 @@ padding: 0.2em 1.5em;
 .move-btn.right { cursor: e-resize; }
 
 /* navbar styling */
-@import 'https://fonts.googleapis.com/css?family=Raleway';
+/* @import 'https://fonts.googleapis.com/css?family=Raleway'; */
 div.container
 {
     font-family: Raleway;
@@ -96,6 +97,7 @@ div.container a
     text-decoration: none;
     font-family: "Montserrat", sans-serif;
     font-size: 20px;
+    font-weight: bold;
     margin: 0px 10px;
     padding: 10px 10px;
     position: relative;
