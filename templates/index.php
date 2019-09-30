@@ -395,7 +395,7 @@ padding: 0 2%;
 <div class="container yellow borderXwidth">
   <a>HOME</a>
   <a>ARTICLES</a>
-  <a href="/gallery.html">GALLERY</a>
+  <a href="gallery.php">GALLERY</a>
   <a>ABOUT</a>
   <a>CONTACT</a>
 </div>
