@@ -70,62 +70,6 @@ border-bottom: 2px solid #e8f380;
 padding-bottom: 12px;
 line-height: 3;
 }
-.mouse {
-display: block;
-margin: 0 auto;
-width: 26px;
-height: 46px;
-border-radius: 13px;
-border: 2px solid #e8f380;
-position: absolute;
-bottom: 40px;
-position: absolute;
-left: 50%;
-margin-left: -26px;
-}
-.mouse span {
-display: block;
-margin: 6px auto;
-width: 2px;
-height: 2px;
-border-radius: 4px;
-background: #e8f380;
-border: 1px solid transparent;
--webkit-animation-duration: 1s;
-animation-duration: 1s;
--webkit-animation-fill-mode: both;
-animation-fill-mode: both;
--webkit-animation-iteration-count: infinite;
-animation-iteration-count: infinite;
--webkit-animation-name: scroll;
-animation-name: scroll;
-}
-@-webkit-keyframes scroll {
-0% {
-  opacity: 1;
-  -webkit-transform: translateY(0);
-  transform: translateY(0);
-}
-100% {
-  opacity: 0;
-  -webkit-transform: translateY(20px);
-  transform: translateY(20px);
-}
-}
-@keyframes scroll {
-0% {
-  opacity: 1;
-  -webkit-transform: translateY(0);
-  -ms-transform: translateY(0);
-  transform: translateY(0);
-}
-100% {
-  opacity: 0;
-  -webkit-transform: translateY(20px);
-  -ms-transform: translateY(20px);
-  transform: translateY(20px);
-}
-}
 
 /* nav bar */
 /* @import 'https://fonts.googleapis.com/css?family=Raleway'; */
@@ -407,10 +351,6 @@ padding: 0 2%;
 <div class="hero">
 <!-- TITLE -->
     <h1><span>Project ReachOut</span><br>Project ReachOut</h1>
-<!-- the mouse logo -->
-    <div class="mouse">
-        <span></span>
-    </div>
 </div>
 
 <!-- Text content of the page -->
