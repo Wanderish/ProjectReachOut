@@ -393,7 +393,7 @@ padding: 0 2%;
 <!-- navbar -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.js"></script>
 <div class="container yellow borderXwidth">
-  <a>HOME</a>
+  <a href="/">HOME</a>
   <a>ARTICLES</a>
   <a href="gallery.php">GALLERY</a>
   <a>ABOUT</a>

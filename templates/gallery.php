@@ -140,9 +140,9 @@ div.borderXwidth a:hover:before, div.borderXwidth a:hover:after
   <body>
     <!-- navbar -->
     <div class="container yellow borderXwidth">
-      <a>HOME</a>
+      <a href="/">HOME</a>
       <a>ARTICLES</a>
-      <a>GALLERY</a>
+      <a href="gallery.php">GALLERY</a>
       <a>ABOUT</a>
       <a>CONTACT</a>
     </div>
