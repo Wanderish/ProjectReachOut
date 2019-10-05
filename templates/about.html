@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat|Cardo' rel='stylesheet' type='text/css'>
+    <link href='templates/style.css' rel='stylesheet' type='text/css'>
+    <title></title>
+
+    <style media="screen">
+    /* nav bar */
+
+    @import 'https://fonts.googleapis.com/css?family=Raleway';
+    html, body
+    {
+        margin: 0px;
+    }
+
+    div.container
+    {
+        font-family: Raleway;
+        margin: 0 auto;
+    	  padding: 2em 1em;
+    	  text-align: center;
+    }
+
+    div.container a
+    {
+        /* color: #FFF; */
+        color: #000;
+        text-decoration: none;
+        font-family: "Montserrat", sans-serif;
+        font-size: 20px;
+        /* font-weight: bold; */
+        margin: 0px 10px;
+        padding: 10px 10px;
+        position: relative;
+        z-index: 0;
+        cursor: pointer;
+    }
+
+    .yellow
+    {
+        background: #fadc64;
+    }
+
+    /* Border X get width  */
+    div.borderXwidth a:before, div.borderXwidth a:after
+    {
+        position: absolute;
+        opacity: 0;
+        width: 0%;
+        height: 2px;
+        content: '';
+        /* background: #FFF; */
+        background: #000;
+        transition: all 0.3s;
+    }
+
+    div.borderXwidth a:before
+    {
+        left: 0px;
+        top: 0px;
+    }
+
+    div.borderXwidth a:after
+    {
+        right: 0px;
+        bottom: 0px;
+    }
+
+    div.borderXwidth a:hover:before, div.borderXwidth a:hover:after
+    {
+        opacity: 1;
+        width: 100%;
+    }
+
+    /* title styling */
+    .title{
+      font-family: "Montserrat", sans-serif;
+      font-stretch: normal;
+      font-size: 25px;
+      font-weight: bold;
+      line-height: 1;
+      margin-bottom: 50px;
+      position: relative;
+      text-align: center;
+      text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+      text-transform: uppercase;
+      padding-top: 20px;
+      /* padding-bottom: 10px; */
+    }
+
+    /* content styling */
+    p {
+    margin-bottom: 20px;
+    font-size: 17px;
+    line-height: 2;
+    }
+    .content {
+    padding: 50px 2% 250px;
+    }
+    .row {
+    width: 100%;
+    max-width: 940px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 2%;
+    text-align: center;
+    }
+    * {
+    box-sizing: border-box;
+    }
+    body {
+    color: #202020;
+    background: white;
+    font-family: "Cardo", serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    }
+
+    /* logo styling */
+    .logo{
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      margin-top: 15px;
+      margin-left: 20px;
+      position: absolute;
+      top: -20px;
+      z-index: 3;
+    }
+    </style>
+
+  </head>
+  <body>
+    <div class="logo">
+      <img height="120" src="data:image/jpeg;base64,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" alt="logo here">
+    </div>
+    <div class="container yellow borderXwidth">
+      <a href="/">HOME</a>
+      <a>EVENTS</a>
+      <a href="gallery.php">GALLERY</a>
+      <a href="about.html">ABOUT</a>
+      <a href="#">DONATE</a>
+      <a>CONTACT</a>
+    </div>
+
+      <!-- Text content of the page -->
+      <div class="row content">
+          <div class="title">
+              <h2>WHO WE ARE</h2>
+          </div>
+          <p>Project ReachOut is an initiative undertaken by a group of like-minded students, whose aim is to work at various Social Service Organizations in Mysore, and impart the knowledge seeped from these precincts through the social media.      Unlike a database cataloging the mundane information pertaining to the many organizations, we present a first hand comprehensive account of the same. Our team will pay visits to each organization in Mysore and work under their banner for a couple days. It will obtain the pertinent details concerning the establishment and then, the same would be published on this blog.</p>
+
+          <div class="title">
+            <h2>HOW WE WORK</h2>
+          </div>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, recusandae, at, labore velit eligendi amet nobis repellat natus sequi sint consectetur excepturi doloribus vero provident consequuntur accusamus quisquam nesciunt cupiditate soluta alias illo et deleniti voluptates facilis repudiandae similique dolore quaerat architecto perspiciatis officiis dolor ullam expedita suscipit neque minima rem praesentium inventore ab officia quos dignissimos esse quam placeat iste porro eius! Minus, aspernatur nesciunt consectetur. Sit, eius, itaque, porro, beatae impedit officia tenetur reiciendis autem vitae a quae ipsam repudiandae odio dolorum quaerat asperiores possimus corporis optio animi quisquam laboriosam nihil quam voluptatum quidem veritatis iste culpa iure modi perspiciatis recusandae ipsa libero officiis aliquam doloremque similique id quasi atque distinctio enim sapiente ratione in quia eum perferendis earum blanditiis. Nobis, architecto, veniam molestias minus iste necessitatibus est ab in earum ratione eveniet soluta molestiae sed illo nostrum nemo debitis. Minus, quod totam aliquam ea asperiores fugit quaerat excepturi dolores ratione numquam consequatur id unde alias provident vero incidunt exercitationem similique consequuntur hic possimus? Fuga, eveniet quaerat inventore corporis laborum eligendi enim soluta obcaecati aliquid veritatis provident amet laudantium est quisquam dolore exercitationem modi? Distinctio, pariatur, ab velit praesentium vitae quidem consequatur deleniti recusandae odit officiis. Quidem, cupiditate.</p>
+          <div class="title">
+              <h2>OUR TEAM</h2>
+          </div>
+          <div class="title">
+              <h2>OUR Partners</h2>
+          </div>
+      </div>
+  </body>
+</html>
