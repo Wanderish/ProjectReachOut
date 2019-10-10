@@ -38,7 +38,6 @@
       padding-top: 20px;
       /* padding-bottom: 10px; */
     }
-
 /* body, hero styling */
 .row {
 width: 100%;
@@ -400,6 +399,7 @@ padding: 0 2%;
 <?php include("includes/navbar.html") ?>
 
 <div class="hero">
+<!-- TITLE -->
     <h1><span>Project ReachOut</span><br>Project ReachOut</h1>
 </div>
 
@@ -411,9 +411,6 @@ padding: 0 2%;
     <p>Project ReachOut is an initiative undertaken by a group of like-minded students, whose aim is to work at various Social Service Organizations in Mysore, and impart the knowledge seeped from these precincts through the social media.      Unlike a database cataloging the mundane information pertaining to the many organizations, we present a first hand comprehensive account of the same. Our team will pay visits to each organization in Mysore and work under their banner for a couple days. It will obtain the pertinent details concerning the establishment and then, the same would be published on this blog.</p>
 </div>
 
-<div class="title">
-  <h2 style="font-size: 24px;">Upcoming Events</h2>
-</div>
 <!-- Flickity horizontal scroll menu -->
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 <div class="carousel"
@@ -454,7 +451,13 @@ padding: 0 2%;
       Information about this event. Information about this event. Information about this event. Information about this event. Information about this event.
     </div>
   </div>
-  
+
+  <img src="https://balutsav.org/wp-content/themes/cappa/admin/thumb.php?src=wp-content/uploads/2017/06/Education-makes-all-the-difference.jpg&w=700&h=700&zc=1&q=90" alt="orange tree" />
+  <img src="https://www.bailinson-oleary.com/wp-content/uploads/2019/08/Child-Support.jpg" alt="submerged" />
+  <img src="https://s3.ap-southeast-1.amazonaws.com/images.asianage.com/images/aa-Cover-a9kq7pp6apo6bffrmh7370d4h0-20171101155522.Medi.jpeg" alt="look-out" />
+  <img src="http://rehabindiafoundation.org/sites/default/files/ngo.jpg" alt="One World Trade" />
+  <img src="http://www.paveinternships.com/wp-content/uploads/Human-Resource-Management-Internship-at-Non-Profit-.jpg" alt="drizzle" />
+  <img src="https://www.netiapps.com/sites/default/files/what-does-the-ngo-sector-need-to-navigate-the-digital-era-1024x731.jpg" alt="cat nose" />
 </div>
 <!-- Flickity horizontal scroll menu ends -->
 
@@ -470,6 +473,7 @@ padding: 0 2%;
         <div class="footer-flexbox">
           <div class="col-sm-12 col-md-6">
             <h6>About</h6>
+
             <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, recusandae, at, labore velit eligendi amet nobis repellat natus sequi sint consectetur excepturi doloribus.</p>
           </div>
 

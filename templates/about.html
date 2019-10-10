@@ -4,17 +4,18 @@
     <meta charset="utf-8">
     <link href='https://fonts.googleapis.com/css?family=Montserrat|Cardo' rel='stylesheet' type='text/css'>
     <link href='templates/style.css' rel='stylesheet' type='text/css'>
+    <!-- external icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title></title>
 
     <style media="screen">
-    /* nav bar */
 
+    /* nav bar */
     @import 'https://fonts.googleapis.com/css?family=Raleway';
     html, body
     {
         margin: 0px;
     }
-
     div.container
     {
         font-family: Raleway;
@@ -22,10 +23,8 @@
     	  padding: 2em 1em;
     	  text-align: center;
     }
-
     div.container a
     {
-        /* color: #FFF; */
         color: #000;
         text-decoration: none;
         font-family: "Montserrat", sans-serif;
@@ -37,12 +36,10 @@
         z-index: 0;
         cursor: pointer;
     }
-
     .yellow
     {
         background: #fadc64;
     }
-
     /* Border X get width  */
     div.borderXwidth a:before, div.borderXwidth a:after
     {
@@ -55,19 +52,16 @@
         background: #000;
         transition: all 0.3s;
     }
-
     div.borderXwidth a:before
     {
         left: 0px;
         top: 0px;
     }
-
     div.borderXwidth a:after
     {
         right: 0px;
         bottom: 0px;
     }
-
     div.borderXwidth a:hover:before, div.borderXwidth a:hover:after
     {
         opacity: 1;
@@ -127,6 +121,192 @@
       top: -20px;
       z-index: 3;
     }
+
+    /* footer styling */
+    .footer-row {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 2%;
+    }
+    .site-footer
+    {
+      background-color:#26272b;
+      padding:25px 0 20px;
+      font-size:15px;
+      font-family: "Montserrat", sans-serif;
+      line-height:24px;
+      color:#737373;
+    }
+    .site-footer hr
+    {
+      border-top-color:#bbb;
+      opacity:0.5
+    }
+    .site-footer hr.small
+    {
+      margin:20px 0
+    }
+    .site-footer h6
+    {
+      color:#fff;
+      font-size:16px;
+      text-transform:uppercase;
+      margin-top:5px;
+      letter-spacing:2px
+    }
+    .site-footer a
+    {
+      color:#737373;
+    }
+    .site-footer a:hover
+    {
+      color:#3366cc;
+      text-decoration:none;
+    }
+    .footer-links
+    {
+      padding-left:0;
+      list-style:none
+    }
+    .footer-links li
+    {
+      display:block
+    }
+    .footer-links a
+    {
+      color:#737373
+    }
+    .footer-links a:active,.footer-links a:focus,.footer-links a:hover
+    {
+      color:#3366cc;
+      text-decoration:none;
+    }
+    .footer-links.inline li
+    {
+      display:inline-block
+    }
+    .site-footer .social-icons
+    {
+      text-align:right
+    }
+    .site-footer .social-icons a
+    {
+      width:40px;
+      height:40px;
+      line-height:40px;
+      margin-left:6px;
+      margin-right:0;
+      border-radius:100%;
+      background-color:#33353d
+    }
+    .copyright-text
+    {
+      margin:0
+    }
+    @media (max-width:900px)
+    {
+      .site-footer [class^=col-]
+      {
+        margin-bottom:30px;
+      }
+    }
+    @media (max-width:767px)
+    {
+      .site-footer
+      {
+        padding-bottom:0
+      }
+      .site-footer .copyright-text,.site-footer .social-icons
+      {
+        text-align:center
+      }
+    }
+    .social-icons
+    {
+      padding-left:0;
+      margin-bottom:0;
+      list-style:none
+    }
+    .social-icons li
+    {
+      display:inline-block;
+      margin-bottom:4px;
+    }
+    .social-icons li.title
+    {
+      margin-right:15px;
+      text-transform:uppercase;
+      color:#96a2b2;
+      font-weight:700;
+      font-size:13px
+    }
+    .social-icons a{
+      background-color:#eceeef;
+      color:#818a91;
+      font-size:16px;
+      display:inline-block;
+      line-height:44px;
+      width:44px;
+      height:44px;
+      text-align:center;
+      margin-right:8px;
+      border-radius:100%;
+      -webkit-transition:all .2s linear;
+      -o-transition:all .2s linear;
+      transition:all .2s linear
+    }
+    .social-icons a:active,.social-icons a:focus,.social-icons a:hover
+    {
+      color:#fff;
+      background-color:#29aafe
+    }
+    .social-icons.size-sm a
+    {
+      line-height:34px;
+      height:34px;
+      width:34px;
+      font-size:14px
+    }
+    .social-icons a.facebook:hover
+    {
+      background-color:#3b5998
+    }
+    .social-icons a.google:hover
+    {
+      background-color:#d44638
+    }
+    .social-icons a.linkedin:hover
+    {
+      background-color:#007bb6
+    }
+    .social-icons a.instagram:hover
+    {
+      background-color:#ea4c89
+    }
+    @media (max-width:767px)
+    {
+      .social-icons li.title
+      {
+        display:block;
+        margin-right:0;
+        font-weight:600
+      }
+    }
+    .footer-flexbox
+    {
+      display: flex;
+    }
+    .footer-flexbox > div
+    {
+      margin: 10px;
+    }
+    .text-justify
+    {
+      text-align: justify;
+      text-justify: inter-word;
+    }
     </style>
 
   </head>
@@ -161,5 +341,65 @@
               <h2>OUR Partners</h2>
           </div>
       </div>
+
+      <!-- footer here -->
+      <!-- Class : site-footer -->
+        <footer class="site-footer">
+          <div class="footer-container">
+            <div class="footer-row">
+              <div class="footer-flexbox">
+                <div class="col-sm-12 col-md-6">
+                  <h6>About</h6>
+
+                  <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, recusandae, at, labore velit eligendi amet nobis repellat natus sequi sint consectetur excepturi doloribus.</p>
+                </div>
+
+                <div class="col-xs-6 col-md-3">
+                  <h6>Categories</h6>
+                  <ul class="footer-links">
+                    <li><a href="">AAAA</a></li>
+                    <li><a href="">BBBB</a></li>
+                    <li><a href="">CCCC</a></li>
+                    <li><a href="">DDDD</a></li>
+                    <li><a href="">EEEE</a></li>
+                    <li><a href="">FFFF</a></li>
+                  </ul>
+                </div>
+
+                <div class="col-xs-6 col-md-3">
+                  <h6>Links</h6>
+                  <ul class="footer-links">
+                    <li><a href="http://scanfcode.com/about/">About Us</a></li>
+                    <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
+                    <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
+                    <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
+                    <li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+            <hr>
+          </div>
+          <div class="footer-container">
+            <div class="footer-row">
+              <div class="col-md-8 col-sm-6 col-xs-12">
+                <p class="copyright-text">Copyright &copy; 2019 All Rights Reserved by
+             <a href="#">Project ReachOut</a>.
+                </p>
+              </div>
+
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                <ul class="social-icons">
+                  <li><a class="facebook" href="https://www.facebook.com/projectreachoutmys/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                  <li><a class="google" href="#"><i class="fa fa-google"></i></a></li>
+                  <li><a class="instagram" href="https://instagram.com/project_reachout?igshid=1q5nj1io229fc" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                  <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+      </footer>
+      <!-- footer ends here -->
   </body>
 </html>
