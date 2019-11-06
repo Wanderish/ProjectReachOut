@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat|Cardo' rel='stylesheet' type='text/css'>
+    <link href='templates/style.css' rel='stylesheet' type='text/css'>
+    <!-- new carousel -->
+    <link href="/home/shreya/webd/templates/flix-carousel-master/src/carousel.css" rel="stylesheet">
+    <!--  external css: flickity.css -->
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <!-- external icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style media="screen">
+
+
+    /* title styling */
+    .title{
+      font-family: "Montserrat", sans-serif;
+      font-stretch: normal;
+      font-size: 25px;
+      font-weight: bold;
+      line-height: 1;
+      margin-bottom: 50px;
+      position: relative;
+      text-align: center;
+      text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+      text-transform: uppercase;
+      padding-top: 20px;
+      /* padding-bottom: 10px; */
+    }
+/* body, hero styling */
+.row {
+width: 100%;
+max-width: 940px;
+margin: 0 auto;
+position: relative;
+padding: 0 2%;
+}
+* {
+box-sizing: border-box;
+}
+body {
+color: #202020;
+background: white;
+font-family: "Cardo", serif;
+font-weight: 300;
+-webkit-font-smoothing: antialiased;
+}
+a {
+text-decoration: none;
+}
+h1 {
+font-size: 30px;
+line-height: 1.8;
+text-transform: uppercase;
+font-family: "Montserrat", sans-serif;
+}
+p {
+margin-bottom: 10px;
+font-size: 17px;
+line-height: 2;
+text-align: center;
+}
+.content {
+padding: 50px 2% 100px;
+}
+.hero {
+position: relative;
+background: url(https://www.cityflowers.co.in/blog/wp-content/uploads/2018/11/NGO.jpg) no-repeat center center fixed;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+background-size: cover;
+text-align: center;
+color: #fff;
+padding-top: 110px;
+min-height: 500px;
+letter-spacing: 2px;
+font-family: "Montserrat", sans-serif;
+}
+.hero h1 {
+font-size: 50px;
+line-height: 1.3;
+}
+.hero h1 span {
+font-size: 25px;
+color: #e8f380;
+border-bottom: 2px solid #e8f380;
+padding-bottom: 12px;
+line-height: 3;
+}
+
+
+
+/* flickity.css: for the horizontal scroll menu */
+.carousel {
+  background: #EEE;
+}
+.carousel img {
+  display: block;
+  height: 200px;
+}
+@media screen and ( min-width: 768px ) {
+  .carousel img {
+    height: 400px;
+  }
+}
+
+
+
+/* text overlay */
+.content-on-image:hover .overlay-text {
+  opacity: 1;
+}
+.overlay-text {
+  position: absolute;
+  bottom: 0;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: #f1f1f1;
+  width: 100%;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+/* MODAL */
+.image-zoom-container {
+	list-style: none;
+	font-size: 0px;
+  max-height: 200px;
+}
+.zoom-container {
+  padding-left: 5px;
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+	width: 33.33%;
+	font-size: 16px;
+	font-size: 1rem;
+	border: 1px solid #fff;
+	vertical-align: top;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+.zoom-container img {
+	display: block;
+  width: 100%;
+  height:100%;
+  position: relative;
+  border-radius: 10px;
+	-webkit-transition: all .5s ease; /* Safari and Chrome */
+        -moz-transition: all .5s ease; /* Firefox */
+        -ms-transition: all .5s ease; /* IE 9 */
+        -o-transition: all .5s ease; /* Opera */
+        transition: all .5s ease;
+}
+.zoom-container .zoom-caption {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 10;
+	background: rgba(0, 0, 0, .5);
+	-webkit-transition: all .5s ease; /* Safari and Chrome */
+        -moz-transition: all .5s ease; /* Firefox */
+        -ms-transition: all .5s ease; /* IE 9 */
+        -o-transition: all .5s ease; /* Opera */
+        transition: all .5s ease;
+}
+.zoom-container .zoom-caption {
+	display: block;
+  float: left;
+	text-align: center;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 1.5em;
+	font-weight: 900;
+	letter-spacing: -1px;
+	text-transform: uppercase;
+	color: #fff;
+	margin: 23% 0 0;
+	padding: 10px 0;
+	border-top: 5px solid rgba(255, 255, 255, .15);
+	border-bottom: 5px solid rgba(255, 255, 255, .15);
+}
+.zoom-container:hover img {
+
+	-webkit-transform:scale(1.25); /* Safari and Chrome */
+        -moz-transform:scale(1.25); /* Firefox */
+        -ms-transform:scale(1.25); /* IE 9 */
+        -o-transform:scale(1.25); /* Opera */
+         transform:scale(1.25);
+}
+.zoom-container:hover .zoom-caption {
+	background: none;
+}
+.grid{
+  height: 500px;
+}
+@media (max-width: 767px) {
+	.zoom-container {
+		width: 50%;
+	}
+}
+
+@media (max-width: 480px) {
+	.zoom-container {
+		width: 100%;
+	}
+  .grid{
+    height: 1000px;
+  }
+}
+
+
+    </style>
+  </head>
+
+
+<body>
+<!-- HERE -->
+{% extends "navbar-footer.html" %}
+{% block content %}
+
+<div class="hero">
+<!-- TITLE -->
+    <h1><span>Project ReachOut</span><br>Project ReachOut</h1>
+</div>
+
+<!-- Text content of the page -->
+<div class="row content">
+  <div class="title">
+    <h2 style="font-size: 24px; text-align: center;">OUR VISION</h2>
+  </div>
+    <p>Project ReachOut is an initiative undertaken by a group of like-minded students, whose aim is to work at various Social Service Organizations in Mysore, and impart the knowledge seeped from these precincts through the social media.      Unlike a database cataloging the mundane information pertaining to the many organizations, we present a first hand comprehensive account of the same. Our team will pay visits to each organization in Mysore and work under their banner for a couple days. It will obtain the pertinent details concerning the establishment and then, the same would be published on this blog.</p>
+</div>
+
+<div class="title">
+  <h2 style="font-size: 24px;">UPCOMING EVENTS</h2>
+  <p style="font-size: 12px;">Click on the images for more information</p>
+</div>
+
+
+
+<div class="grid">
+<!-- since all these links lead to the same page, we can pass some distinguishable variable -->
+      <div class="image-zoom-container">
+      	<div class="zoom-container">
+        	<a href="upcomingEventsDeets.html">
+      			<!-- <span class="zoom-caption">
+      				<!-- <h3>Costa Rica</h3> -->
+      			<!-- </span> -->
+      			<img src="http://www.nccp.org/publications/images/istock-839295596.jpg" />
+
+      		</a>
+      	</div>
+
+
+  	<div class="zoom-container">
+  		<a href="upcomingEventsDeets.html">
+
+  			<img src="http://rightsofchildren.ca/wp-content/uploads/2017/02/iStock_000040052340Large.jpg" />
+  		</a>
+  	</div>
+  	<!--/.zoom-container-->
+  	<div class="zoom-container">
+  		<a href="upcomingEventsDeets.html">
+
+  			<img src="https://image.shutterstock.com/image-photo/group-kindergarten-kids-friends-arm-260nw-636281354.jpg" />
+  		</a>
+  	</div>
+  	<!--/.zoom-container-->
+  </div>
+
+</div>
+
+<!-- Flickity horizontal scroll menu -->
+<!-- <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+<div class="carousel"
+  data-flickity='{ "imagesLoaded": true, "percentPosition": false, "wrapAround": true}'>
+  <div class="content-on-image">
+    <img src="https://balutsav.org/wp-content/themes/cappa/admin/thumb.php?src=wp-content/uploads/2017/06/Education-makes-all-the-difference.jpg&w=700&h=700&zc=1&q=90" alt="orange tree" />
+    <div class="overlay-text">
+
+    </div>
+  </div>
+
+  <div class="content-on-image">
+    <img src="https://www.bailinson-oleary.com/wp-content/uploads/2019/08/Child-Support.jpg" alt="orange tree" />
+    <div class="overlay-text">
+      Information about this event. Information about this event. Information about this event. Information about this event. Information about this event.
+    </div>
+  </div>
+
+  <div class="content-on-image">
+    <img src="https://s3.ap-southeast-1.amazonaws.com/images.asianage.com/images/aa-Cover-a9kq7pp6apo6bffrmh7370d4h0-20171101155522.Medi.jpeg" alt="orange tree" />
+    <div class="overlay-text">
+      Information about this event. Information about this event. Information about this event. Information about this event. Information about this event.
+    </div>
+  </div>
+ -->
+
+
+  <!-- <img src="https://balutsav.org/wp-content/themes/cappa/admin/thumb.php?src=wp-content/uploads/2017/06/Education-makes-all-the-difference.jpg&w=700&h=700&zc=1&q=90" alt="orange tree" />
+  <img src="https://www.bailinson-oleary.com/wp-content/uploads/2019/08/Child-Support.jpg" alt="submerged" />
+  <img src="https://s3.ap-southeast-1.amazonaws.com/images.asianage.com/images/aa-Cover-a9kq7pp6apo6bffrmh7370d4h0-20171101155522.Medi.jpeg" alt="look-out" />
+  <img src="http://rehabindiafoundation.org/sites/default/files/ngo.jpg" alt="One World Trade" />
+  <img src="http://www.paveinternships.com/wp-content/uploads/Human-Resource-Management-Internship-at-Non-Profit-.jpg" alt="drizzle" />
+  <img src="https://www.netiapps.com/sites/default/files/what-does-the-ngo-sector-need-to-navigate-the-digital-era-1024x731.jpg" alt="cat nose" /> -->
+<!-- </div> -->
+
+
+
+
+
+
+
+<!-- <script type="text/javascript">
+var $trigger = $('.modal-open');
+var $close = $('.modal-close');
+var $modal = $('.modal-box');
+
+$(window).on('resize', function() {
+  var top = $trigger.offset().top + $trigger.outerHeight();
+  var left = $trigger.offset().left;
+  var width = $trigger.outerWidth();
+  $trigger.attr({
+      'data-top': top,
+      'data-left': left,
+      'data-width': width
+  });
+  $modal.css({
+      top: top,
+      left: left
+  });
+}).trigger('resize');
+
+$trigger.on('click', function() {
+  $modal.css({
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%'
+  }).addClass('is-open');
+});
+
+$close.on('click', function() {
+  var top = $trigger.offset().top + $trigger.outerHeight();
+  var left = $trigger.offset().left;
+  $modal.css({
+      top: top,
+      left: left,
+      width: 0,
+      height: '2px'
+  }).removeClass('is-open');
+});
+</script> -->
+<script type="text/javascript">
+var elements = $('.modal-overlay, .modal');
+
+$('button').click(function(){
+  elements.addClass('active');
+});
+
+$('.close-modal').click(function(){
+  elements.removeClass('active');
+});
+</script>
+<!-- Flickity horizontal scroll menu ends -->
+
+
+{% endblock %}
+
+  </body>
+</html>
