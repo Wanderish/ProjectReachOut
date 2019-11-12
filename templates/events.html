@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      .flex-container{
+        display: flex;
+      }
+      .flex-container .poster{
+        padding: 20px;
+        padding-top: 50px;
+      }
+      .poster img{
+        width: 200px;
+        height: 200px;
+      }
+      /* content styling */
+      p {
+      margin-bottom: 5px;
+      font-size: 17px;
+      line-height: 2;
+      }
+      .content {
+      padding: 50px 2% 50px;
+      }
+      .row {
+      width: 100%;
+      max-width: 940px;
+      margin: 0 auto;
+      position: relative;
+      padding: 0 2%;
+      text-align: center;
+      }
+      * {
+      box-sizing: border-box;
+      }
+      body {
+      color: #202020;
+      background-image: url("/templates/images/Untitled design.png");
+      font-family: "Cardo", serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      }
+    </style>
+  </head>
+  <body>
+    {% extends "navbar-footer.html" %}
+    {% block content %}
+
+<!-- this should be in a loop i.e must be displayed n times if there are n events -->
+    <div class="flex-container">
+      <div class="poster">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpax1b3lGxdHx9chGtVfYw5rJxmqga9jEedyg6XSBZH2Araqd3lg&s" alt="poster">
+      </div>
+      <div class="content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, recusandae, at, labore velit eligendi amet nobis repellat natus sequi sint consectetur excepturi doloribus vero provident consequuntur accusamus quisquam nesciunt cupiditate soluta alias illo et deleniti voluptates facilis repudiandae similique dolore quaerat architecto perspiciatis officiis dolor ullam expedita suscipit neque minima rem praesentium inventore ab officia quos dignissimos esse quam placeat iste porro eius! Minus, aspernatur nesciunt consectetur.
+        <a href="previousEventsDeets.html">More...</a> </p>
+
+      </div>
+
+    </div>
+
+    <div class="flex-container">
+    <div class="poster">
+      <img src="https://cdn.shopify.com/s/files/1/1940/0719/products/NaNo_2018_-_Poster_Sized_for_Store_408aea95-a40d-4c34-9ab7-f42a0f60317b_1024x1024.png?v=1535665867" alt="poster">
+    </div>
+    <div class="content">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, recusandae, at, labore velit eligendi amet nobis repellat natus sequi sint consectetur excepturi doloribus vero provident consequuntur accusamus quisquam nesciunt cupiditate soluta alias illo et deleniti voluptates facilis repudiandae similique dolore quaerat architecto perspiciatis officiis dolor ullam expedita suscipit neque minima rem praesentium inventore ab officia quos dignissimos esse quam placeat iste porro eius! Minus, aspernatur nesciunt consectetur.
+      <a href="previousEventsDeets.html">More...</a> </p>
+    </div>
+  </div>
+<!-- loop  -->
+
+    {% endblock %}
+  </body>
+</html>
