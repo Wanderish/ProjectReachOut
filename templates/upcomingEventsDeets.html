@@ -2,24 +2,13 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1">
     <title></title>
     <style media="screen">
     body, html {
   height: 100%;
 }
 
-.bg {
-  /* The image used */
-  background-image: url("/home/shreya/webd/Untitled design.png");
-
-  /* Full height */
-  height: 100%;
-
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
     /* title styling */
     .title{
       font-family: "Montserrat", sans-serif;
@@ -58,31 +47,29 @@
     }
     body {
     color: #202020;
-    background-image: url("/home/shreya/webd/Untitled design.png");
     font-family: "Cardo", serif;
     font-weight: 300;
     -webkit-font-smoothing: antialiased;
     }
-
-        /* logo styling */
-        .logo{
-          box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-          margin-top: 15px;
-          margin-left: 20px;
-          position: absolute;
-          top: -20px;
-          z-index: 3;
-        }
+    .flex-container{
+      display: flex;
+      justify-content: space-around;
+      flex-direction: row;
+      font-family: "Montserrat", sans-serif;
+      font-size: 14px;
+      padding: 5px;
+    }
+    @media screen and (max-width: 760px) {
+      .flex-container{
+        flex-direction: column;
+      }
+    }
     </style>
   </head>
   <body>
     <!-- HERE -->
     {% extends "navbar-footer.html" %}
     {% block content %}
-
-    <div class="bg">
-
-    </div>
       <!-- Text content of the page -->
       <div class="row content">
           <div class="title">
@@ -90,6 +77,17 @@
           </div>
           <div class="poster">
             <img src="https://piktochart.com/wp-content/uploads/2018/01/poster-conference.jpg" alt="Event Poster here" style="max-width: 300px; max-height: 400px;">
+          </div>
+          <div class="flex-container">
+            <div class="date">
+              <h3>Date:<br> 00-00-0000</h3>
+            </div>
+            <div class="time">
+                <h3>Time:<br> 0:00AM</h3>
+            </div>
+            <div class="venue">
+              <h3>Venue:<br> SJCE campus, Manasa Gangothri, MYSURU</h3>
+            </div>
           </div>
           <p>Project ReachOut is an initiative undertaken by a group of like-minded students, whose aim is to work at various Social Service Organizations in Mysore, and impart the knowledge seeped from these precincts through the social media.      Unlike a database cataloging the mundane information pertaining to the many organizations, we present a first hand comprehensive account of the same. Our team will pay visits to each organization in Mysore and work under their banner for a couple days. It will obtain the pertinent details concerning the establishment and then, the same would be published on this blog.</p>
 

@@ -25,6 +25,7 @@
     }
     html, body{
       margin: 0px;
+      background-image: url("/static/images/bg-new.png");
     }
     div.container
     {
@@ -50,7 +51,7 @@
 form { max-width:420px; margin:50px auto; }
 
 .feedback-input {
-  color:white;
+  color:black;
   font-family: Helvetica, Arial, sans-serif;
   font-weight:500;
   font-size: 18px;
@@ -72,6 +73,7 @@ textarea {
   height: 150px;
   line-height: 150%;
   resize:vertical;
+  color: #000;
 }
 
 [type="submit"] {
@@ -127,7 +129,8 @@ textarea {
 }
 .our-team .team-prof h3{
     font-size: 18px;
-    font-family: "Cardo", serif;
+    /* font-family: "Cardo", serif; */
+    font-family: "Montserrat", sans-serif;
     text-align: center;
     font-weight: bold;
     color: #000;
@@ -135,7 +138,8 @@ textarea {
     text-transform: uppercase;
 }
 .our-team .team-prof span{
-  font-family: "Cardo", serif;
+  /* font-family: "Cardo", serif; */
+  font-family: "Montserrat", sans-serif;
     font-size: 16px;
     text-align: center;
     color: #000;
@@ -144,8 +148,20 @@ textarea {
     text-transform: capitalize;
 }
 
+@media screen and (max-width: 769px){
+  .flex-container img{
+    width: 30%;
+    height: 30%;
+    margin-left: 35%;
+  }
+}
+
 @media only screen and (max-width: 990px){
     .flex-container{ flex-direction: column;}
+    form{
+      padding-left: 15px;
+      padding-right: 15px;
+    }
 
 }
 

@@ -1,0 +1,5 @@
+events.html - content padding
+fix READ MORE button
+contact page - maps
+hero image - look for a hero image on the drive
+UI design

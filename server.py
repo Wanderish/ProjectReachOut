@@ -49,6 +49,14 @@ def render_demo():
 def render_upcomingEvents():
     return render_template('upcomingEventsDeets.html')
 
+@app.route('/previousEventsDeets.html')
+def render_previousEvents():
+    return render_template('previousEventsDeets.html')
+
+@app.route('/contact.html')
+def render_contact():
+    return render_template('contact.html')
+
 @app.route('/UI_Index.html')
 def render_UIindex():
     return render_template('UI_Index.html')

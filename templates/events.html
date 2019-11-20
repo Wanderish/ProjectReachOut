@@ -6,14 +6,36 @@
     <style media="screen">
       .flex-container{
         display: flex;
+        flex-direction: row;
       }
       .flex-container .poster{
         padding: 20px;
         padding-top: 50px;
       }
-      .poster img{
-        width: 200px;
-        height: 200px;
+      .poster{
+        /* width: 200px;
+        height: 200px; */
+        float: left;
+        max-width: 350px;
+        max-height: 450px;
+        padding: 40px;
+        padding-top: 70px;
+      }
+      /* title styling */
+      .title{
+        font-family: "Montserrat", sans-serif;
+        font-stretch: normal;
+        font-size: 25px;
+        font-weight: bold;
+        line-height: 1;
+        margin-top: 10px;
+        /* margin-bottom: 50px; */
+        position: relative;
+        text-align: left;
+        text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
+        text-transform: uppercase;
+        padding-top: 30px;
+        /* padding-bottom: 10px; */
       }
       /* content styling */
       p {
@@ -23,6 +45,7 @@
       }
       .content {
       padding: 50px 2% 50px;
+      float: left;
       }
       .row {
       width: 100%;
@@ -37,16 +60,51 @@
       }
       body {
       color: #202020;
-      background-image: url("/templates/images/Untitled design.png");
       font-family: "Cardo", serif;
       font-weight: 300;
       -webkit-font-smoothing: antialiased;
       }
+      @media screen and (max-width: 760px) {
+        .flex-container{
+          flex-direction: column;
+        }
+        .poster{
+          align-self: center;
+          padding-left: 20%;
+        }
+        p{
+          text-align: left;
+        }
+        .content{
+          text-align: left;
+          padding: 10px;
+        }
+      }
+
+      #more {display: none;}
+    }
     </style>
   </head>
   <body>
     {% extends "navbar-footer.html" %}
     {% block content %}
+<!-- !!!!!!!!!!!!!!!!!!!!! NEW CHANGES !!!!!!!!!!!!!!!!!!!! -->
+    <!-- this should be in a loop i.e must be displayed n times if there are n events -->
+        <div class="flex-container">
+          <div class="content">
+            <img class="poster" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpax1b3lGxdHx9chGtVfYw5rJxmqga9jEedyg6XSBZH2Araqd3lg&s" alt="poster">
+            <div class="text">
+              <h1 class="title">EVENT 1</h1>
+              <h3 class="date">Date : 00-00-0000</h3>
+              <h3 class="venue">Venue: Mysuru</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, recusandae, at, labore velit eligendi amet nobis repellat natus sequi sint consectetur excepturi doloribus vero provident consequuntur accusamus quisquam nesciunt cupiditate soluta alias illo et deleniti voluptates facilis repudiandae similique dolore quaerat architecto perspiciatis officiis dolor ullam expedita suscipit neque minima rem praesentium inventore ab officia quos dignissimos esse quam placeat iste porro eius! Minus, aspernatur nesciunt consectetur.
+              <a href="previousEventsDeets.html">More...</a> </p>
+            </div>
+          </div>
+        </div>
+
+    <!-- loop  -->
+<!-- !!!!!!!!!!!!!!!!!!!!! NEW CHANGES !!!!!!!!!!!!!!!!!!!! -->
 
 <!-- this should be in a loop i.e must be displayed n times if there are n events -->
   {% for l in t %}

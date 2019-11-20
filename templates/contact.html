@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Contact</title>
+    <style media="screen">
+      .flex-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+      #googleMap{
+        width:70%;
+        height:400px;
+        margin: 20px;
+        border-radius: 10px;
+      }
+      address{
+        font-family: "Montserrat", sans-serif;
+        font-size: 20px;
+        font-weight: normal;
+        margin: 20px;
+      }
+
+      @media screen and (max-width: 760px) {
+        .flex-container{
+          flex-direction: column;
+        }
+        
+
+        address {
+          text-align: left;
+        }
+      }
+
+      }
+    </style>
+  </head>
+  <body>
+    {% extends "navbar-footer.html" %}
+    {% block content %}
+    <div class="flex-container">
+      <div id="googleMap"></div>
+      <div class="address">
+        <address class="address">
+          <h4>Address:</h4>
+          <p>288/1, Lakshmi Vilas Road, <br>Near Jaganmohan Palace, <br>Devaraja Mohalla, Chamrajpura, <br>Mysuru, Karnataka - 570024</p>
+        </address>
+        <address class="contact">
+          <h4>Contact:</h4>
+          <p>+91 91136 92695</p>
+          <br>
+          <p><a href="/supportUs.html" style="background-color: yellow; border-radius: 6px;">Drop us a mail here.</a> </p>
+        </address>
+      </div>
+    </div>
+<!-- 288/1, Lakshmi Vilas Road near Jaganmohan Palace, Devaraja Mohalla, Chamrajpura, Mysuru, Karnataka 570024 -->
+    <script>
+    function myMap() {
+    var mapProp= {
+      center:new google.maps.LatLng(12.306520,76.651700),
+      zoom:5,
+    };
+    var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+    }
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAv-nsPkjfYpJEQCronLRkewjwuqJAc6-4&callback=myMap"></script>
+
+    {% endblock %}
+  </body>
+</html>
