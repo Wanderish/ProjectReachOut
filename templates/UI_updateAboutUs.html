@@ -1,0 +1,98 @@
+<html>
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/addevent.css') }}">
+  </head>
+<body>
+<div class="container">
+  <form name="whoweare" action="update_who_we_are" method="post">
+
+    <h3>Update 'Who We Are'</h3>
+    <fieldset>
+      <p>{{ whoweare }}</p>
+      <textarea placeholder="Paste Here"  name='WhoWeAre' type="text" tabindex="1" required autofocus>
+      </textarea>
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" id="whoweare-update" data-submit="...Sending">Update</button>
+    </fieldset>
+  </form>
+
+  <form id="howework" action="update_how_we_work" method="post">
+    <h3>Update 'How We Work'</h3>
+    <fieldset>
+      <p>{{ howwework }}</p>
+      <textarea placeholder="Paste Here" name='HowWeWork' type="text" tabindex="1" required autofocus>
+      </textarea>
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" id="howwework-update" data-submit="...Sending">Update</button>
+    </fieldset>
+    </form>
+
+    <h3>Update 'Our Team'</h3>
+    <fieldset>
+    {% for l in t %}
+      {% if 'Post' in l %}
+
+      <form class="" action="update_team_member" method="post">
+        <!-- Add Members in a heirarchical order if you want them to displayed that way.
+             If Some Post is to be modified, better to use update itself!!-->
+        <fieldset>
+            <h4>Priority Number</h4>
+            <input hidden value={{ l["Priority"] }} name='old_priority' type='text'>
+            <p>{{ l["Priority"] }} </p>
+          <fieldset>
+            <h4>Name</h4>
+            <input placeholder={{ l["Name"] }} value={{ l["Name"] }} name='name' type="text" tabindex="1" required autofocus>
+            </fieldset>
+          <fieldset>
+            <h4>Post</h4>
+            <input placeholder={{ l["Post"] }} value={{ l["Post"] }} name='post' tabindex="1" >
+          </fieldset>
+          <fieldset>
+            <h4>Google Drive Photo Link</h4>
+            <input placeholder={{ l['Photo Link'] }} value={{ l['Photo Link'] }} name='photo_link' tabindex="1" >
+          </fieldset>
+          <fieldset>
+            <h4>Email Address</h4>
+            <input placeholder={{ l["Email"] }} value={{ l["Email"] }} name='email' tabindex="1" >
+          </fieldset>
+        </fieldset>
+        <fieldset>
+          <button name="delete" type="submit"  data-submit="...Sending">Delete</button>
+          <button name="update" type="submit"  data-submit="...Sending">Update</button>
+        </fieldset>
+      </form>
+      {% endif %}
+    {% endfor %}
+    </fieldset>
+
+    <form class="" action="add_team_member" method="post">
+    <h3>Add a new team member</h3>
+    <fieldset>
+      <h4>Priority Number</h4>
+      <input placeholder='Priority Number' name='priority' tabindex="1" value={{ Next_priority}} hidden>
+      <p>{{ Next_priority}}</p>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Name" name='name' type="text" tabindex="1" required autofocus>
+      </fieldset>
+    <fieldset>
+      <input placeholder="Post" name='post' tabindex="1" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Google drive link for member's photo" name='photo_link' tabindex="1" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Email Address" name='email' tabindex="1" required>
+    </fieldset>
+    <button name="submit" type="submit" id="team-submit" data-submit="...Sending">Add</button>
+  </form>
+  <br>
+  <form class="" action="go_to_index" method="post">
+  <button name="submit" type="submit" id="team-submit" data-submit="...Sending">Done! Go Back</button>
+  </form>
+</div>
+
+</body>
+</html>

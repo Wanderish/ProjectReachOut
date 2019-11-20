@@ -173,30 +173,18 @@ textarea {
           <h2>Merchandise</h2>
       </div>
       <div class="flex-container">
+        {% for l in t %}
+          {% if 'Priority' in l %}
                       <div class="our-team">
-                          <img src="https://img.represent.com/uploads/a686cd5a16a349e3c6baae9c1268bec3.jpeg?auto=format&w=750" alt="">
+                          <img src={{ l['Photo Link'] }} alt="">
                           <div class="team-prof">
-                              <h3>Shirt 1</h3>
-                              <span>Price</span>
-                              <span>Get this <a href="link">here</a></span>
+                              <h3>{{ l['Item'] }}</h3>
+                              <span>{{l['Price']}}</span>
+                              <span>Get this <a href="link">{{ l['Link'] }}</a></span>
                           </div>
                       </div>
-                      <div class="our-team">
-                          <img src="https://m.media-amazon.com/images/I/B1qmQK-r4OS._CLa%7C2140%2C2000%7C61fLoHyzI8L.png%7C0%2C0%2C2140%2C2000%2B0.0%2C0.0%2C2140.0%2C2000.0._UL1500_.png" alt="">
-                          <div class="team-prof">
-                              <h3>Shirt 2</h3>
-                              <span>Price</span>
-                              <span>Get this <a href="link">here</a> </span>
-                          </div>
-                      </div>
-                      <div class="our-team">
-                          <img src="https://img.secure.cdn2.wmgecom.com/media/catalog/product/cache/343/small_image/180x180/9df78eab33525d08d6e5fb8d27136e95/c/r/crewneck_pink_1_1_.jpg" alt="">
-                          <div class="team-prof">
-                              <h3>Shirt 3</h3>
-                              <span>Price</span>
-                              <span>Get this <a href="link">here</a></span>
-                          </div>
-                      </div>
+                      {% endif %}
+          {% endfor %}
       </div>
 
 

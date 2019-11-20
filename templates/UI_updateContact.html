@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form name="contact" action="update_contact" method="post">
+      <h3>Update 'Contact'</h3>
+      <fieldset>
+        <p>{{ contact }}</p>
+        <textarea placeholder="Paste Here"  name='contact' type="text" tabindex="1" required autofocus>
+        </textarea>
+      </fieldset>
+      <fieldset>
+        <button name="submit" type="submit" id="contact-update" data-submit="...Sending">Update</button>
+      </fieldset>
+    </form>
+    <form name="address" action="update_address" method="post">
+      <h3>Update 'Address'</h3>
+      <fieldset>
+        <p>{{ address }}</p>
+        <textarea placeholder="Paste Here"  name='address' type="text" tabindex="1" required autofocus>
+        </textarea>
+      </fieldset>
+      <fieldset>
+        <button name="submit" type="submit" id="address-update" data-submit="...Sending">Update</button>
+      </fieldset>
+    </form>
+    <form class="" action="go_to_index" method="post">
+    <button name="submit" type="submit" id="team-submit" data-submit="...Sending">Done! Go Back</button>
+    </form>
+  </body>
+</html>

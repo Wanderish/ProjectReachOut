@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form name="about" action="update_Footer" method="post">
+      <h3>Update 'About'</h3>
+      <h4>Only 250 characters allowed.</h4>
+      <fieldset>
+        <p>{{ about }}</p>
+        <textarea placeholder="Paste Here"  name='about' type="text" tabindex="1" maxlength="250" required autofocus>
+        </textarea>
+      </fieldset>
+      <fieldset>
+        <button name="submit" type="submit" id="about-update" data-submit="...Sending">Update</button>
+      </fieldset>
+    </form>
+    <form class="" action="go_to_index" method="post">
+    <button name="submit" type="submit" id="team-submit" data-submit="...Sending">Done! Go Back</button>
+    </form>
+  </body>
+</html>
