@@ -63,6 +63,7 @@
 .flex-container{
   display: flex;
   justify-content: center;
+  flex-flow: row wrap;
 }
 .our-team{
   float: left;
@@ -70,8 +71,8 @@
 
 }
 .our-team img{
-    width: 200px;
-    height: 200px;
+    width: 160px;
+    height: 160px;
     border: 2px solid #fadc64;
     border-radius: 5px;
     transition: all 0.30s linear 0s;
@@ -80,11 +81,11 @@
     border:2px solid #000;
 }
 .our-team .team-prof h3{
-    font-size: 20px;
+    font-size: 16px;
     font-family: "Montserrat", sans-serif;
     font-weight: bold;
     color: #000;
-    margin: 20px 0;
+    /* margin: 20px 0; */
     text-transform: uppercase;
 }
 .our-team .team-prof span{
@@ -135,7 +136,7 @@
                               <div class="team-prof">
                                   <h3> {{ l['Name'] }} </h3>
                                   <span> {{ l['Post'] }} </span>
-                                  <span>Contact : {{ l['Email'] }} </span>
+                                  <span>{{ l['Email'] }} </span>
                               </div>
                           </div>
                           <!-- <div class="our-team">

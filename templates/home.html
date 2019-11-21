@@ -217,7 +217,12 @@ line-height: 3;
     height: 1000px;
   }
 }
-
+.flex-container{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-bottom: 100px;
+}
 
     </style>
   </head>
@@ -248,37 +253,31 @@ line-height: 3;
 
 
 
-<div class="grid">
-<!-- since all these links lead to the same page, we can pass some distinguishable variable -->
-      <div class="image-zoom-container">
-      	<div class="zoom-container">
-        	<a href="upcomingEventsDeets.html">
-      			<!-- <span class="zoom-caption">
-      				<!-- <h3>Costa Rica</h3> -->
-      			<!-- </span> -->
-      			<img src="http://www.nccp.org/publications/images/istock-839295596.jpg" />
+<!-- upcoming events -->
+            <div class="flex-container">
+              <div class="zoom-container">
+                <a href="upcomingEventsDeets.html">
+                  <!-- <span class="zoom-caption">
+                    <!-- <h3>Costa Rica</h3> -->
+                  <!-- </span> -->
+                  <img src="http://www.nccp.org/publications/images/istock-839295596.jpg" />
 
-      		</a>
-      	</div>
+                </a>
+              </div>
 
-
-  	<div class="zoom-container">
-  		<a href="upcomingEventsDeets.html">
-
-  			<img src="http://rightsofchildren.ca/wp-content/uploads/2017/02/iStock_000040052340Large.jpg" />
-  		</a>
-  	</div>
-  	<!--/.zoom-container-->
-  	<div class="zoom-container">
-  		<a href="upcomingEventsDeets.html">
-
-  			<img src="https://image.shutterstock.com/image-photo/group-kindergarten-kids-friends-arm-260nw-636281354.jpg" />
-  		</a>
-  	</div>
-  	<!--/.zoom-container-->
-  </div>
-
-</div>
+    	         <div class="zoom-container">
+    		           <a href="upcomingEventsDeets.html">
+                     <img src="http://rightsofchildren.ca/wp-content/uploads/2017/02/iStock_000040052340Large.jpg" />
+    		           </a>
+    	         </div>
+    	          <!-- /.zoom-container-->
+    	           <div class="zoom-container">
+    		             <a href="upcomingEventsDeets.html">
+    			                <img src="https://image.shutterstock.com/image-photo/group-kindergarten-kids-friends-arm-260nw-636281354.jpg" />
+    		             </a>
+    	          </div>
+    	           <!-- zoom-container -->
+            </div>
 
 <!-- Flickity horizontal scroll menu -->
 <!-- <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
