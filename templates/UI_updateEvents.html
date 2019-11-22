@@ -11,11 +11,78 @@
     font-weight: 300;
     -webkit-font-smoothing: antialiased;
     }
+    button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  .green{
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+  }
+  .green:hover{
+    background-color: #4CAF50;
+    color: white;
+  }
+  .red{
+    background-color: white;
+    color: black;
+    border: 2px solid red;
+  }
+  .red:hover{
+    background-color: red;
+    color: white;
+  }
+  .yellow{
+    background-color: white;
+    color: black;
+    border: 2px solid yellow;
+  }
+  .yellow:hover{
+    background-color: yellow;
+    color: white;
+  }
+  textarea {
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+}
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+input:focus {
+  border: 3px solid #555;
+}
     </style>
   </head>
   <body>
     <div class="">
-      <h3>Update Events</h3>
+      <h2>Update Events</h2>
       <fieldset>
       {% for l in t %}
         {% if 'Num' in l %}
@@ -41,16 +108,21 @@
             </fieldset>
           </fieldset>
           <fieldset>
-            <button name="delete" type="submit"  data-submit="...Sending">Delete</button>
-            <button name="update" type="submit"  data-submit="...Sending">Update</button>
+
+            <button class="green" name="update" type="submit"  data-submit="...Sending">Update</button>
+
+            <button style="margin-left: 30%;" class="red" name="delete" type="submit"  data-submit="...Sending">Delete</button>
           </fieldset>
         </form>
         {% endif %}
       {% endfor %}
       </fieldset>
 
+      <div class="gap" style="padding-bottom: 50px; padding-top:50px;">
+      </div>
+
       <form class="" action="add_event" method="post">
-      <h3>Add a new event</h3>
+      <h2>Add a new event</h2>
       <fieldset>
         <fieldset>
           <input hidden value={{ prev_num }} name='num' type='text'>
@@ -68,11 +140,15 @@
       <fieldset>
         <input placeholder="Link to Google Drive Folder for photos" name='photos' tabindex="1" required>
       </fieldset>
-      <button name="submit" type="submit" id="team-submit" data-submit="...Sending">Add</button>
+      <button class="green" name="submit" type="submit" id="team-submit" data-submit="...Sending">Add</button>
     </form>
     <br>
+
+    <div class="gap" style="padding-bottom: 50px; padding-top:50px;">
+    </div>
+
     <form class="" action="go_to_index" method="post">
-    <button name="submit" type="submit" id="team-submit" data-submit="...Sending">Done! Go Back</button>
+    <button class="yellow" name="submit" type="submit" id="team-submit" data-submit="...Sending">Done! Go Back</button>
     </form>
   </div>
   </body>

@@ -1,113 +1,207 @@
-<html>
-<head>
-  <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/addevent.css') }}">
-  <style media="screen">
-  html{
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    html{
+      height: 100%;
+    }
+    body {
     height: 100%;
+    margin-top: 10px;
+    color: #202020;
+    background-image: url("/static/images/longerBG.png");
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    -webkit-font-smoothing: antialiased;
+    }
+    button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
   }
-  body {
-    height: 100%;
-  margin-top: 10px;
-  color: #202020;
-  background-image: url("/static/images/longerBG.png");
-  font-family: "Montserrat", sans-serif;
-  font-weight: 300;
-  -webkit-font-smoothing: antialiased;
+  .green{
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
   }
-  </style>
+  .green:hover{
+    background-color: #4CAF50;
+    color: white;
+  }
+  .red{
+    background-color: white;
+    color: black;
+    border: 2px solid red;
+    margin-left: 30%;
+  }
+  .red:hover{
+    background-color: red;
+    color: white;
+  }
+  .yellow{
+    background-color: white;
+    color: black;
+    border: 2px solid yellow;
+  }
+  .yellow:hover{
+    background-color: yellow;
+    color: white;
+  }
+  textarea {
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+}
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+input:focus {
+  border: 3px solid #555;
+}
+    </style>
   </head>
-<body>
+  <body>
+    <div class="container">
 
-<div class="container">
-  <form name="whoweare" action="update_who_we_are" method="post">
-
-    <h3>Update 'Who We Are'</h3>
-    <fieldset>
-      <p>{{ whoweare }}</p>
-      <textarea placeholder="Paste Here"  name='WhoWeAre' type="text" tabindex="1" required autofocus>
-      </textarea>
-    </fieldset>
-    <fieldset>
-      <button name="submit" type="submit" id="whoweare-update" data-submit="...Sending">Update</button>
-    </fieldset>
-  </form>
-
-  <form id="howework" action="update_how_we_work" method="post">
-    <h3>Update 'How We Work'</h3>
-    <fieldset>
-      <p>{{ howwework }}</p>
-      <textarea placeholder="Paste Here" name='HowWeWork' type="text" tabindex="1" required autofocus>
-      </textarea>
-    </fieldset>
-    <fieldset>
-      <button name="submit" type="submit" id="howwework-update" data-submit="...Sending">Update</button>
-    </fieldset>
-    </form>
-
-    <h3>Update 'Our Team'</h3>
-    <fieldset>
-    {% for l in t %}
-      {% if 'Post' in l %}
-
-      <form class="" action="update_team_member" method="post">
-        <!-- Add Members in a heirarchical order if you want them to displayed that way.
-             If Some Post is to be modified, better to use update itself!!-->
+      <form name="whoweare" action="update_who_we_are" method="post">
+        <h2>Update 'Who We Are'</h2>
         <fieldset>
-            <h4>Priority Number</h4>
-            <input hidden value={{ l["Priority"] }} name='old_priority' type='text'>
-            <p>{{ l["Priority"] }} </p>
-          <fieldset>
-            <h4>Name</h4>
-            <input placeholder={{ l["Name"] }} value={{ l["Name"] }} name='name' type="text" tabindex="1" required autofocus>
-            </fieldset>
-          <fieldset>
-            <h4>Post</h4>
-            <input placeholder={{ l["Post"] }} value={{ l["Post"] }} name='post' tabindex="1" >
-          </fieldset>
-          <fieldset>
-            <h4>Google Drive Photo Link</h4>
-            <input placeholder={{ l['Photo Link'] }} value={{ l['Photo Link'] }} name='photo_link' tabindex="1" >
-          </fieldset>
-          <fieldset>
-            <h4>Email Address</h4>
-            <input placeholder={{ l["Email"] }} value={{ l["Email"] }} name='email' tabindex="1" >
-          </fieldset>
+          <p>{{ whoweare }}</p>
+          <textarea placeholder="Paste Here"  name='WhoWeAre' type="text" tabindex="1" required autofocus>
+          </textarea>
         </fieldset>
         <fieldset>
-          <button name="delete" type="submit"  data-submit="...Sending">Delete</button>
-          <button name="update" type="submit"  data-submit="...Sending">Update</button>
+          <button class="green" name="submit" type="submit" id="whoweare-update" data-submit="...Sending">Update</button>
         </fieldset>
       </form>
-      {% endif %}
-    {% endfor %}
-    </fieldset>
 
-    <form class="" action="add_team_member" method="post">
-    <h3>Add a new team member</h3>
-    <fieldset>
-      <h4>Priority Number</h4>
-      <input placeholder='Priority Number' name='priority' tabindex="1" value={{ Next_priority}} hidden>
-      <p>{{ Next_priority}}</p>
-    </fieldset>
-    <fieldset>
-      <input placeholder="Name" name='name' type="text" tabindex="1" required autofocus>
-      </fieldset>
-    <fieldset>
-      <input placeholder="Post" name='post' tabindex="1" required>
-    </fieldset>
-    <fieldset>
-      <input placeholder="Google drive link for member's photo" name='photo_link' tabindex="1" required>
-    </fieldset>
-    <fieldset>
-      <input placeholder="Email Address" name='email' tabindex="1" required>
-    </fieldset>
-    <button name="submit" type="submit" id="team-submit" data-submit="...Sending">Add</button>
-  </form>
-  <br>
-  <form class="" action="go_to_index" method="post">
-  <button name="submit" type="submit" id="team-submit" data-submit="...Sending">Done! Go Back</button>
-  </form>
+<div class="gap" style="padding-bottom: 50px; padding-top:50px;">
 </div>
 
-</body>
+      <form id="howework" action="update_how_we_work" method="post">
+        <h2>Update 'How We Work'</h2>
+        <fieldset>
+          <p>{{ howwework }}</p>
+          <textarea placeholder="Paste Here" name='HowWeWork' type="text" tabindex="1" required autofocus>
+          </textarea>
+        </fieldset>
+        <fieldset>
+          <button class="green" name="submit" type="submit" id="howwework-update" data-submit="...Sending">Update</button>
+        </fieldset>
+        </form>
+
+<div class="gap" style="padding-bottom: 50px; padding-top:50px;">
+</div>
+
+        <h2>Update 'Our Team'</h2>
+        <fieldset>
+        {% for l in t %}
+          {% if 'Post' in l %}
+
+          <form class="" action="update_team_member" method="post">
+            <!-- Add Members in a heirarchical order if you want them to displayed that way.
+                 If Some Post is to be modified, better to use update itself!!-->
+            <fieldset>
+                <h4>Priority Number</h4>
+                <input hidden value={{ l["Priority"] }} name='old_priority' type='text'>
+                <p>{{ l["Priority"] }} </p>
+              <fieldset>
+                <h4>Name</h4>
+                <input placeholder={{ l["Name"] }} value={{ l["Name"] }} name='name' type="text" tabindex="1" required autofocus>
+                </fieldset>
+              <fieldset>
+                <h4>Post</h4>
+                <input placeholder={{ l["Post"] }} value={{ l["Post"] }} name='post' tabindex="1" >
+              </fieldset>
+              <fieldset>
+                <h4>Google Drive Photo Link</h4>
+                <input placeholder={{ l['Photo Link'] }} value={{ l['Photo Link'] }} name='photo_link' tabindex="1" >
+              </fieldset>
+              <fieldset>
+                <h4>Email Address</h4>
+                <input placeholder={{ l["Email"] }} value={{ l["Email"] }} name='email' tabindex="1" >
+              </fieldset>
+            </fieldset>
+            <fieldset>
+
+              <button class="green" name="update" type="submit"  data-submit="...Sending">Update</button>
+
+              <button onclick="deleteForSure()" name="delete" class="red" id="delete" type="submit"  data-submit="...Sending">Delete</button>
+            </fieldset>
+          </form>
+          {% endif %}
+        {% endfor %}
+        </fieldset>
+
+<div class="gap" style="padding-bottom: 50px; padding-top:50px;">
+</div>
+
+        <form class="" action="add_team_member" method="post">
+        <h2>Add a new team member</h2>
+        <fieldset>
+          <h4>Priority Number</h4>
+          <input placeholder='Priority Number' name='priority' tabindex="1" value={{ Next_priority}} hidden>
+          <p>{{ Next_priority}}</p>
+        </fieldset>
+        <fieldset>
+          <input placeholder="Name" name='name' type="text" tabindex="1" required autofocus>
+          </fieldset>
+        <fieldset>
+          <input placeholder="Post" name='post' tabindex="1" required>
+        </fieldset>
+        <fieldset>
+          <input placeholder="Google drive link for member's photo" name='photo_link' tabindex="1" required>
+        </fieldset>
+        <fieldset>
+          <input placeholder="Email Address" name='email' tabindex="1" required>
+        </fieldset>
+        <button class="green" name="submit" type="submit" id="team-submit" data-submit="...Sending">Add</button>
+      </form>
+      <br>
+      <form class="" action="go_to_index" method="post">
+
+<div class="gap" style="padding-bottom: 50px; padding-top:50px;">
+</div>
+
+      <button style="margin-bottom: 100px;" class="yellow"  name="submit" type="submit" id="team-submit" data-submit="...Sending">Done! Go Back</button>
+      </form>
+    </div>
+
+<script type="text/javascript">
+  function deleteForSure() {
+    var r = confirm("Are you sure you want to delete?");
+    if (r == true){ //if user click's OK
+      // some condition here. condition below currently not working
+      document.getElementbyId("delete").setAttribute("name", "delete-yes");
+    }
+  }
+</script>
+
+  </body>
 </html>
