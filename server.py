@@ -27,7 +27,8 @@ def render_gallery():
 @app.route('/events.html')
 def render_events():
     Events =  collections.OrderedDict(sorted(db.child('Events').get().val().items()))
-    return render_template('events.html', t=Events.values())
+    events = db.child('Events').get().val()
+    return render_template('events.html', t=events.values())
 
 @app.route('/about.html')
 def render_about():
@@ -95,13 +96,14 @@ def render_UI_updateSupportUs():
 @app.route('/UI_updateEvents.html')
 def render_UI_updateEvents():
     Events = collections.OrderedDict(sorted(db.child('Events').get().val().items())).values()
+    events = db.child('Events').get().val()
     prev_num = 0
     for i in Events:
         if type(i) != type(''):
-            prev_num = i['Num']
-            break
-    prev_num = int(prev_num)-1
-    return render_template('UI_updateEvents.html', t=Events,prev_num=prev_num)
+            if prev_num > int(i['Num']):
+                prev_num = int(i['Num'])
+    prev_num = (prev_num)-1
+    return render_template('UI_updateEvents.html', t=events.values(),prev_num=prev_num)
 
 @app.route('/update_who_we_are',methods=['GET','POST'])
 def update_who_we_are():
@@ -174,9 +176,15 @@ def update_event():
             db.child('Events').child(request.form['num']).remove()
             poster_temp = request.form['poster'].replace('/view?usp=sharing','')
             poster = poster_temp.replace('file/d/', 'uc?id=')
-            event_folder_link_temp = request.form['photos'].replace('open','embeddedfolderview')
-            event_folder_link = event_folder_link_temp + '#grid'
-            db.child('Events').child(request.form['num']).update({'Title':request.form['title'],'Description':request.form['description'],'Poster':poster,'Photos':event_folder_link, 'Num':request.form['num']})
+            if request.form['photos'] != '' :
+                if request.form['old_link']!=request.form['photos']:
+                    event_folder_link_temp = request.form['photos'].replace('open','embeddedfolderview')
+                    event_folder_link = event_folder_link_temp + '#grid'
+                    db.child('Events').child(request.form['num']).update({'Title':request.form['title'],'Date':request.form['date'],'Description':request.form['description'],'Poster':poster,'Photos':event_folder_link, 'Num':request.form['num'], 'Venue':request.form['venue']})
+                else:
+                    db.child('Events').child(request.form['num']).update({'Title':request.form['title'],'Date':request.form['date'],'Description':request.form['description'],'Poster':poster,'Photos':request.form['old_link'], 'Num':request.form['num'], 'Venue':request.form['venue']})
+            else:
+                db.child('Events').child(request.form['num']).update({'Title':request.form['title'],'Date':request.form['date'],'Description':request.form['description'],'Poster':poster, 'Num':request.form['num'],'Venue':request.form['venue']})
         return redirect(url_for('render_UI_updateEvents'))
 
 @app.route('/add_event',methods=['GET','POST'])
@@ -184,9 +192,12 @@ def add_event():
     if request.method == 'POST':
         poster_temp = request.form['poster'].replace('/view?usp=sharing','')
         poster = poster_temp.replace('file/d/', 'uc?id=')
-        event_folder_link_temp = request.form['photos'].replace('open','embeddedfolderview')
-        event_folder_link = event_folder_link_temp + '#grid'
-        db.child('Events').child(request.form['num']).update({'Title':request.form['title'],'Description':request.form['description'],'Poster':poster,'Photos':event_folder_link, 'Num':request.form['num']})
+        if request.form['photos'] != '':
+            event_folder_link_temp = request.form['photos'].replace('open','embeddedfolderview')
+            event_folder_link = event_folder_link_temp + '#grid'
+            db.child('Events').child(request.form['num']).update({'Title':request.form['title'],'Date':request.form['date'],'Description':request.form['description'],'Poster':poster,'Photos':event_folder_link, 'Num':request.form['num']})
+        else:
+            db.child('Events').child(request.form['num']).update({'Title':request.form['title'],'Date':request.form['date'],'Description':request.form['description'],'Poster':poster, 'Num':request.form['num']})
     return redirect(url_for('render_UI_updateEvents'))
 
 

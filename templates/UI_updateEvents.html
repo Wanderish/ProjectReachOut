@@ -25,19 +25,30 @@
               <input hidden value={{ l["Num"] }} name='num' type='text'>
             <fieldset>
               <h4>Event Title</h4>
-              <input placeholder={{ l["Title"] }} value={{ l["Title"] }} name='title' type="text" tabindex="1" required autofocus>
+              <input placeholder={{ l['Title'] }} value='{{ l["Title"] }}' name='title' type="text" tabindex="1" required autofocus>
               </fieldset>
             <fieldset>
+              <fieldset>
+                <h4>Event Date</h4>
+                <input placeholder={{l["Date"]}} value='{{ l["Date"] }}' name='date' type="text" tabindex="1" required autofocus>
+                </fieldset>
+              <fieldset>
+                <fieldset>
+                  <h4>Event Venue</h4>
+                  <input placeholder={{l["Venue"]}} value='{{ l["Venue"] }}' name='venue' type="text" tabindex="1" required autofocus>
+                  </fieldset>
+                <fieldset>
               <h4>Description</h4>
-              <input placeholder={{ l["Description"] }} value={{ l["Description"] }} name='description' tabindex="1" >
+              <input placeholder={{ l["Description"] }} value='{{ l["Description"] }}' name='description' tabindex="1" >
             </fieldset>
             <fieldset>
               <h4>Poster Link</h4>
-              <input placeholder={{ l['Poster'] }} value={{ l['Poster'] }} name='poster' tabindex="1" >
+              <input placeholder={{ l['Poster'] }} value='{{ l['Poster'] }}' name='poster' tabindex="1" >
             </fieldset>
             <fieldset>
               <h4>Link to Google Drive Folder for photos</h4>
-              <input placeholder={{ l["Photos"] }} value={{ l["Photos"] }} name='photos' tabindex="1" >
+              <input placeholder={{ l["Photos"] }} value='{{ l["Photos"] }}' name='photos' tabindex="1" >
+              <input hidden value='{{ l["Photos"] }}' name='old_link' tabindex="1" >
             </fieldset>
           </fieldset>
           <fieldset>
@@ -60,13 +71,19 @@
         <input placeholder="Event Title" name='title' type="text" tabindex="1" required autofocus>
         </fieldset>
       <fieldset>
+        <input placeholder="Event Date" name='date' type="text" tabindex="1" required autofocus>
+        </fieldset>
+        <fieldset>
+          <input placeholder='Event Venue' name='venue' type="text" tabindex="1" required autofocus>
+        </fieldset>
+        <fieldset>
         <input placeholder="Event Description" name='description' tabindex="1" required>
       </fieldset>
       <fieldset>
         <input placeholder="Google drive link for Poster" name='poster' tabindex="1" required>
       </fieldset>
       <fieldset>
-        <input placeholder="Link to Google Drive Folder for photos" name='photos' tabindex="1" required>
+        <input placeholder="Link to Google Drive Folder for photos" name='photos' tabindex="1">
       </fieldset>
       <button name="submit" type="submit" id="team-submit" data-submit="...Sending">Add</button>
     </form>
