@@ -11,33 +11,109 @@
     font-weight: 300;
     -webkit-font-smoothing: antialiased;
     }
+    button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  .green{
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+  }
+  .green:hover{
+    background-color: #4CAF50;
+    color: white;
+  }
+  .red{
+    background-color: white;
+    color: black;
+    border: 2px solid red;
+  }
+  .red:hover{
+    background-color: red;
+    color: white;
+  }
+  .yellow{
+    background-color: white;
+    color: black;
+    border: 2px solid yellow;
+  }
+  .yellow:hover{
+    background-color: yellow;
+    color: white;
+  }
+  textarea {
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+}
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+input:focus {
+  border: 3px solid #555;
+}
     </style>
   </head>
   <body>
     <form name="contact" action="update_contact" method="post">
-      <h3>Update 'Contact'</h3>
+      <h2>Update 'Contact'</h2>
       <fieldset>
-        <p>{{ contact }}</p>
-        <textarea placeholder="Paste Here"  name='contact' type="text" tabindex="1" required autofocus>
-        </textarea>
+        <input value='{{ contact }}' name='contact' type="text" tabindex="1" required autofocus>
       </fieldset>
       <fieldset>
-        <button name="submit" type="submit" id="contact-update" data-submit="...Sending">Update</button>
+        <button class="green" name="submit" type="submit" id="contact-update" data-submit="...Sending">Update</button>
       </fieldset>
     </form>
     <form name="address" action="update_address" method="post">
-      <h3>Update 'Address'</h3>
+
+      <div class="gap" style="padding-bottom: 50px; padding-top:50px;">
+      </div>
+
+      <h2>Update 'Address'</h2>
       <fieldset>
-        <p>{{ address }}</p>
-        <textarea placeholder="Paste Here"  name='address' type="text" tabindex="1" required autofocus>
-        </textarea>
+        <h4>Line 1</h4>
+        <input value='{{ address['Line1'] }}' name='line1' type="text" tabindex="1" required autofocus>
+        <h4>Line 2</h4>
+        <input value='{{ address['Line2'] }}' name='line2' type="text" tabindex="1" required autofocus>
+        <h4>Line 3</h4>
+        <input value='{{ address['Line3'] }}' name='line3' type="text" tabindex="1" required autofocus>
       </fieldset>
       <fieldset>
-        <button name="submit" type="submit" id="address-update" data-submit="...Sending">Update</button>
+        <button class="green" name="submit" type="submit" id="address-update" data-submit="...Sending">Update</button>
       </fieldset>
     </form>
+
+    <div class="gap" style="padding-bottom: 50px; padding-top:50px;">
+    </div>
+
     <form class="" action="go_to_index" method="post">
-    <button name="submit" type="submit" id="team-submit" data-submit="...Sending">Done! Go Back</button>
+    <button class="yellow" name="submit" type="submit" id="team-submit" data-submit="...Sending">Done! Go Back</button>
     </form>
   </body>
 </html>

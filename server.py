@@ -18,7 +18,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def render_index():
-    return render_template('home.html')
+    events = db.child('Events').get().val()
+    return render_template('home.html', t=events.values())
 
 @app.route('/gallery.php')
 def render_gallery():
@@ -46,17 +47,25 @@ def render_support():
 def render_demo():
     return render_template('demo.html')
 
-@app.route('/upcomingEventsDeets.html')
+@app.route('/upcomingEventsDeets.html',methods=['GET','POST'])
 def render_upcomingEvents():
-    return render_template('upcomingEventsDeets.html')
+    event_num = request.args.get('type')
+    event_deets = db.child('Events').child(event_num).get().val()
+    return render_template('upcomingEventsDeets.html',details=event_deets)
 
-@app.route('/previousEventsDeets.html')
+@app.route('/previousEventsDeets.html',methods=['GET','POST'])
 def render_previousEvents():
-    return render_template('previousEventsDeets.html')
+    event_num = request.args.get('type')
+    event_deets = db.child('Events').child(event_num).get().val()
+    return render_template('previousEventsDeets.html', details=event_deets)
 
 @app.route('/contact.html')
 def render_contact():
-    return render_template('contact.html')
+    contact = db.child('Contact').child('Contact').get().val()
+    line1 = db.child('Contact').child('Address').child('Line1').get().val()
+    line2 = db.child('Contact').child('Address').child('Line2').get().val()
+    line3 = db.child('Contact').child('Address').child('Line3').get().val()
+    return render_template('contact.html',contact=contact,line1=line1,line2=line2,line3=line3)
 
 @app.route('/UI_Index.html')
 def render_UIindex():
@@ -76,6 +85,7 @@ def render_UI_updateFooter():
 @app.route('/UI_updateAboutUs.html')
 def render_UI_updateAboutUs():
     Team = collections.OrderedDict(sorted(db.child('Team').get().val().items())).values()
+    priority = 0
     for i in Team:
         if type(i) != type(''):
             next_priority = i['Priority']
@@ -87,6 +97,7 @@ def render_UI_updateAboutUs():
 @app.route('/UI_updateSupportUs.html')
 def render_UI_updateSupportUs():
     Merch = collections.OrderedDict(sorted(db.child('Merch').get().val().items())).values()
+    next_priority = 0
     for i in Merch:
         if type(i) != type(''):
             next_priority = i['Priority']
@@ -180,11 +191,11 @@ def update_event():
                 if request.form['old_link']!=request.form['photos']:
                     event_folder_link_temp = request.form['photos'].replace('open','embeddedfolderview')
                     event_folder_link = event_folder_link_temp + '#grid'
-                    db.child('Events').child(request.form['num']).update({'Title':request.form['title'],'Date':request.form['date'],'Description':request.form['description'],'Poster':poster,'Photos':event_folder_link, 'Num':request.form['num'], 'Venue':request.form['venue']})
+                    db.child('Events').child(request.form['num']).update({'Title':request.form['title'],'Date':request.form['date'],'Description':request.form['description'],'Poster':poster,'Photos':event_folder_link, 'Num':request.form['num'], 'Venue':request.form['venue'], 'Time':request.form['time'], 'Form':request.form['form']})
                 else:
-                    db.child('Events').child(request.form['num']).update({'Title':request.form['title'],'Date':request.form['date'],'Description':request.form['description'],'Poster':poster,'Photos':request.form['old_link'], 'Num':request.form['num'], 'Venue':request.form['venue']})
+                    db.child('Events').child(request.form['num']).update({'Title':request.form['title'],'Date':request.form['date'],'Description':request.form['description'],'Poster':poster,'Photos':request.form['old_link'], 'Num':request.form['num'], 'Venue':request.form['venue'], 'Time':request.form['time'], 'Form':request.form['form']})
             else:
-                db.child('Events').child(request.form['num']).update({'Title':request.form['title'],'Date':request.form['date'],'Description':request.form['description'],'Poster':poster, 'Num':request.form['num'],'Venue':request.form['venue']})
+                db.child('Events').child(request.form['num']).update({'Title':request.form['title'],'Date':request.form['date'],'Description':request.form['description'],'Poster':poster, 'Num':request.form['num'],'Venue':request.form['venue'], 'Time':request.form['time'],'Form':request.form['form']})
         return redirect(url_for('render_UI_updateEvents'))
 
 @app.route('/add_event',methods=['GET','POST'])
@@ -195,9 +206,9 @@ def add_event():
         if request.form['photos'] != '':
             event_folder_link_temp = request.form['photos'].replace('open','embeddedfolderview')
             event_folder_link = event_folder_link_temp + '#grid'
-            db.child('Events').child(request.form['num']).update({'Title':request.form['title'],'Date':request.form['date'],'Description':request.form['description'],'Poster':poster,'Photos':event_folder_link, 'Num':request.form['num']})
+            db.child('Events').child(request.form['num']).update({'Title':request.form['title'],'Date':request.form['date'],'Description':request.form['description'],'Poster':poster,'Photos':event_folder_link, 'Num':request.form['num'],'Venue':request.form['venue'], 'Time':request.form['time'], 'Form':request.form['form']})
         else:
-            db.child('Events').child(request.form['num']).update({'Title':request.form['title'],'Date':request.form['date'],'Description':request.form['description'],'Poster':poster, 'Num':request.form['num']})
+            db.child('Events').child(request.form['num']).update({'Title':request.form['title'],'Date':request.form['date'],'Description':request.form['description'],'Poster':poster, 'Num':request.form['num'],'Venue':request.form['venue'], 'Time':request.form['time'], 'Form':request.form['form']})
     return redirect(url_for('render_UI_updateEvents'))
 
 
@@ -218,8 +229,10 @@ def update_contact():
 @app.route('/update_address',methods=['GET','POST'])
 def update_address():
     if request.method == 'POST':
-        Address = request.form['address']
-        db.child('Contact').update({'Address':Address})
+        line1 = request.form['line1']
+        line2 = request.form['line2']
+        line3 = request.form['line3']
+        db.child('Contact').child('Address').update({'Line1':line1, 'Line2':line2, 'Line3':line3})
         return redirect(url_for('render_UI_updateContact'))
 
 if __name__=='__main__':

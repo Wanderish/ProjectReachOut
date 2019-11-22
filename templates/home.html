@@ -264,19 +264,18 @@ line-height: 3;
 
                 </a>
               </div>
-
+              {% for l in t %}
+              {% if 'Photos' not in l %}
+              {% if 'Num' in l %}
     	         <div class="zoom-container">
-    		           <a href="upcomingEventsDeets.html">
-                     <img src="http://rightsofchildren.ca/wp-content/uploads/2017/02/iStock_000040052340Large.jpg" />
+    		           <a href="{{url_for('render_upcomingEvents', type=l['Num'])}}">
+                     <img src="{{l['Poster']}}" />
     		           </a>
     	         </div>
     	          <!-- /.zoom-container-->
-    	           <div class="zoom-container">
-    		             <a href="upcomingEventsDeets.html">
-    			                <img src="https://image.shutterstock.com/image-photo/group-kindergarten-kids-friends-arm-260nw-636281354.jpg" />
-    		             </a>
-    	          </div>
-    	           <!-- zoom-container -->
+                {% endif %}
+                {% endif %}
+                {% endfor %}
             </div>
 
 <!-- Flickity horizontal scroll menu -->
