@@ -12,7 +12,7 @@ firebaseConfig = {
   }
 firebase = pyrebase.initialize_app(firebaseConfig)
 db = firebase.database()
-
+auth = firebase.auth()
 from flask import Flask, render_template, request, redirect, url_for
 app = Flask(__name__)
 
@@ -67,9 +67,25 @@ def render_contact():
     line3 = db.child('Contact').child('Address').child('Line3').get().val()
     return render_template('contact.html',contact=contact,line1=line1,line2=line2,line3=line3)
 
-@app.route('/UI_Index.html')
+@app.route('/UI_Index.html',methods=['POST'])
 def render_UIindex():
     return render_template('UI_Index.html')
+
+@app.route('/UI.html',methods=['POST'])
+def render_UI():
+    email = 'projectreachoutmys@gmail.com'
+    password = request.form['password']
+    try:
+        user = auth.sign_in_with_email_and_password(email, password)
+        return render_template('UI.html')
+    except:
+        return render_template('UI_Indexwrong.html')
+
+@app.route('/reset_password',methods=['POST'])
+def reset_password():
+    email = 'projectreachoutmys@gmail.com'
+    auth.send_password_reset_email(email)
+    return render_template('reset_message.html')
 
 @app.route('/UI_updateContact.html')
 def render_UI_updateContact():
