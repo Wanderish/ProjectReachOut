@@ -67,7 +67,7 @@ def render_contact():
     line3 = db.child('Contact').child('Address').child('Line3').get().val()
     return render_template('contact.html',contact=contact,line1=line1,line2=line2,line3=line3)
 
-@app.route('/UI_Index.html',methods=['POST'])
+@app.route('/UI_Index.html')
 def render_UIindex():
     return render_template('UI_Index.html')
 
