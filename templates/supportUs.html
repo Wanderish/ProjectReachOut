@@ -107,6 +107,17 @@ textarea {
   padding-top: 20px;
   /* padding-bottom: 10px; */
 }
+p {
+margin-bottom: 20px;
+font-size: 17px;
+line-height: 2;
+width: 100%;
+max-width: 940px;
+margin: 0 auto;
+position: relative;
+padding: 0 2%;
+text-align: center;
+}
 /* merch */
 .flex-container{
   display: flex;
@@ -130,7 +141,6 @@ textarea {
 }
 .our-team .team-prof h3{
     font-size: 18px;
-    /* font-family: "Cardo", serif; */
     font-family: "Montserrat", sans-serif;
     text-align: center;
     font-weight: bold;
@@ -149,21 +159,63 @@ textarea {
     text-transform: capitalize;
 }
 
-@media screen and (max-width: 769px){
+@media screen and (max-width: 759px){
   .flex-container img{
-    width: 30%;
-    height: 30%;
-    margin-left: 35%;
+    width: 150px;
+    height: 150px;
+    margin-left: 30%;
   }
 }
 
-@media only screen and (max-width: 990px){
+@media only screen and (max-width: 760px){
     .flex-container{ flex-direction: column;}
     form{
       padding-left: 15px;
       padding-right: 15px;
     }
+    .flex-container-new{ flex-direction: column;}
 
+
+}
+.flex-container-new{
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+}
+.poster{
+  width: 200px;
+  height: 200px;
+  max-height: 200px;
+  max-width: 200px;
+  overflow: hidden;
+  float: left;
+  border: 2px solid #fadc64;
+  border-radius: 5px;
+  transition: all 0.30s linear 0s;
+  padding: 2px;
+  /* padding-top: 70px; */
+  margin: 20px;
+  /* margin-left: 160px; */
+  margin-top: 100px;
+}
+.poster img{
+  width: 100%;
+  height: 100%;
+}
+.poster:hover img{
+    border:2px solid #000;
+}
+@media (min-width: 780px){
+  .content-new p{
+    padding-top: 120px;
+  }
+}
+
+}
+.content-new {
+padding: 50px 2% 50px;
+float: left;
+max-width: 70%;
 }
 
     </style>
@@ -175,7 +227,7 @@ textarea {
     {% block content %}
 
       <!-- contact form here -->
-      <div class="title">
+      <!-- <div class="title">
           <h2>Contact Us</h2>
       </div>
       <form>
@@ -183,12 +235,40 @@ textarea {
   <input name="email" type="text" class="feedback-input" placeholder="Email" />
   <textarea name="text" class="feedback-input" placeholder="Comment"></textarea>
   <input type="submit" value="SUBMIT"/>
+      </form> -->
+      <!-- contact form ends -->
+
+      <!-- contact form here -->
+      <div class="title">
+          <h2>SUGGESTIONS</h2>
+      </div>
+      <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSefxWoitsLJWGVKGOh0bmnuHMqi_K0hpTE2Ohbc-uxhAs7e3w/formResponse" target="_self" method="POST">
+        <input name="entry.1721516328" type="text" class="feedback-input" placeholder="Name"/>
+        <input name="entry.1569077136" type="text" class="feedback-input" placeholder="Email" />
+        <textarea name="entry.1816897331" class="feedback-input" placeholder="Comment"></textarea>
+        <input type="submit" value="SUBMIT"/>
       </form>
       <!-- contact form ends -->
 
       <div class="title">
           <h2>Merchandise</h2>
       </div>
+      <p>Generic description here. <br> An area of a document laid out using flexbox is called a flex container. To create a flex container, we set the value of the area's container's display property to flex or inline-flex. As soon as we do this the direct children of that container become flex items. As with all properties in CSS, some initial values are defined, so when creating a flex container all of the contained flex items will behave in the following way.</p>
+
+<!-- For diyas and rakhis -->
+      <div class="flex-container-new">
+        <div class="poster" style="max-width: 200px; max-height:200px;">
+
+          <a href="specials.html">
+            <img src="" alt="Diya">
+          </a>
+
+        </div>
+        <div class="content-new">
+          <p>A perfect luminary can help light up every room. From wall lamps to ceiling pendants provide the perfect light for your home. Decorative light bulbs help in enhancing your home and adding a perfect light to it. These lighting fixtures enhance the look of your home and add unique lighting mood. A Diya, diyo, deya, divaa, deepa, deepam, or deepak is an oil lamp used in the Indian subcontinent, notably India and Nepal, usually made from clay, with a cotton wick dipped in ghee or vegetable oils.</p>
+        </div>
+      </div>
+
       <div class="flex-container">
         {% for l in t %}
           {% if 'Priority' in l %}

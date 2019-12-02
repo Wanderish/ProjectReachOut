@@ -21,15 +21,16 @@ def render_index():
     events = db.child('Events').get().val()
     return render_template('home.html', t=events.values())
 
-@app.route('/gallery.php')
-def render_gallery():
-    return render_template('gallery.html')
-
 @app.route('/events.html')
 def render_events():
     Events =  collections.OrderedDict(sorted(db.child('Events').get().val().items()))
     events = db.child('Events').get().val()
     return render_template('events.html', t=events.values())
+
+@app.route('/specials.html')
+def render_specials():
+    return render_template('specials.html')
+
 
 @app.route('/about.html')
 def render_about():
@@ -42,10 +43,6 @@ def render_about():
 def render_support():
     Merch = collections.OrderedDict(sorted(db.child('Merch').get().val().items()))
     return render_template('supportUs.html',t=Merch.values())
-
-@app.route('/demo.html')
-def render_demo():
-    return render_template('demo.html')
 
 @app.route('/upcomingEventsDeets.html',methods=['GET','POST'])
 def render_upcomingEvents():

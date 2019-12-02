@@ -97,6 +97,7 @@
   display: inline-block;
   font-family: "Montserrat", sans-serif;
   }
+  .menu p{font-size: 14px; margin-top: 10px; padding-bottom:0;}
   .menu_icon div {
   background-color: white;
   border-radius: 2px;
@@ -108,6 +109,12 @@
   float: right;
   /* padding-right: 4px; */
   margin: .5em 0;
+  }
+
+  @media screen and (min-width: 766px){
+    .menu p{
+      font-size: 20px;
+    }
   }
 
   @media screen and (max-width: 1030px){
@@ -138,7 +145,21 @@
     max-height: 20em;
   }
   .handle{
-    display: block;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .logo{
+    flex: 1;
+  }
+  .menu{
+    flex: 1;
+  }
+  .menu-icon{
+    flex: 1;
+  }
+  .menu p{
+    text-align: center;
   }
 
   }
@@ -356,7 +377,7 @@
           </ul>
           <div class="handle">
             <img class="logo" src='/static/images/PRO-logo-trans.png' alt="LOGO">
-            <p class="menu" style="font-size: 18px; text-align: left; margin-top: 0; padding-bottom:0;">Project ReachOut</p>
+            <p class="menu">Project ReachOut</p>
             <div class="menu_icon">
                 <div></div>
                 <div></div>
@@ -412,9 +433,9 @@
           <div class="footer-container">
             <div class="footer-row">
               <div class="col-md-8 col-sm-6 col-xs-12">
-                <p class="copyright-text">Copyright &copy; 2019 All Rights Reserved by
+                <!-- <p class="copyright-text">Copyright &copy; 2019 All Rights Reserved by
              <a href="#">Project ReachOut</a>.
-                </p>
+                </p> -->
               </div>
 
               <div class="col-md-4 col-sm-6 col-xs-12">
