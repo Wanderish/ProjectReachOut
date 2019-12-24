@@ -31,6 +31,9 @@ def render_events():
 def render_specials():
     return render_template('specials.html')
 
+@app.route('/joinUs.html')
+def render_joinUs():
+    return render_template('joinUs.html')
 
 @app.route('/about.html')
 def render_about():
