@@ -151,6 +151,82 @@ input:focus {
     <div class="gap" style="padding-bottom: 50px; padding-top:50px;">
     </div>
 
+    <hr>
+
+    <form name="special_desc" action="update_special_desc" method="post">
+      <h2>Update Description for special product</h2>
+      <fieldset>
+        <p>{{ spec_desc }}</p>
+        <textarea placeholder="Paste Here"  name='special_desc' type="text" tabindex="1" required autofocus>
+        </textarea>
+      </fieldset>
+      <fieldset>
+        <button class="green" name="submit" type="submit" id="special_desc-update" data-submit="...Sending">Update</button>
+      </fieldset>
+    </form>
+
+    <h2>Update 'Specials'</h2>
+    <fieldset>
+    {% for l in s %}
+      {% if 'Name' in l %}
+      <form class="" action="update_special_merch_item" method="post">
+        <!-- Add Members in a heirarchical order if you want them to displayed that way.
+             If Some Post is to be modified, better to use update itself!!-->
+        <fieldset>
+          <fieldset>
+            <h4>Item Name</h4>
+            <input placeholder={{ l["Name"] }} value='{{ l["Name"] }}' name='name' type="text" tabindex="1" required autofocus>
+            </fieldset>
+            <input hidden value={{ l["Id"] }} name='id' type='text'>
+          <fieldset>
+            <h4>Price</h4>
+            <input placeholder={{ l["Price"] }} value='{{ l["Price"] }}' name='price' tabindex="1" >
+          </fieldset>
+          <fieldset>
+            <h4>Google Drive Photo Link of the item</h4>
+            <input placeholder={{ l['Pic Link'] }} value='{{ l['Pic Link'] }}' name='photo_link' tabindex="1" >
+          </fieldset>
+          <fieldset>
+            <h4>Link to buy it</h4>
+            <input placeholder={{ l["Link"] }} value='{{ l["Link"] }}' name='link' tabindex="1" >
+          </fieldset>
+        </fieldset>
+        <fieldset>
+
+          <button class="green" name="update" type="submit"  data-submit="...Sending">Update</button>
+
+          <button class="red" name="delete" type="submit"  data-submit="...Sending">Delete</button>
+        </fieldset>
+      </form>
+      {% endif %}
+    {% endfor %}
+    </fieldset>
+
+    <div class="gap" style="padding-bottom: 50px; padding-top:50px;">
+    </div>
+
+    <form class="" action="add_special_merch_item" method="post">
+    <h3>Add a new special merch item</h3>
+    <fieldset>
+      <input name='id' tabindex="1" value={{ Next_id}} hidden>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Name" name='name' type="text" tabindex="1" required >
+      </fieldset>
+    <fieldset>
+      <input placeholder="Price" name='price' tabindex="1" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Google drive link for item's photo" name='photo_link' tabindex="1" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Link to the google form to buy it" name='link' tabindex="1" required>
+    </fieldset>
+    <button class="green" name="submit" type="submit" id="team-submit" data-submit="...Sending">Add</button>
+    </form>
+    <br>
+
+
     <form class="" action="go_to_index" method="post">
     <button class="yellow" name="submit" type="submit" id="team-submit" data-submit="...Sending">Done! Go Back</button>
     </form>

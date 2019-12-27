@@ -1,4 +1,4 @@
-UI to update diyas/rakhis
-UI - when clicked on "Done! Go Back", it takes you to UI_Index.html while it should actually take you to UI.html
-A "Join Us" button on the home page, before upcoming events. This button must lead to a new html page that contains required deets and a link to a google survey form(link it to the existing Recruitment page).
-Change the Home page image
+-UI to update diyas/rakhis
+-UI - when clicked on "Done! Go Back", it takes you to UI_Index.html while it should actually take you to UI.html
+-A "Join Us" button on the home page, before upcoming events. This button must lead to a new html page that contains required deets and a link to a google survey form(link it to the existing Recruitment page).
+-Change the Home page image

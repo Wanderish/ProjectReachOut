@@ -29,7 +29,8 @@ def render_events():
 
 @app.route('/specials.html')
 def render_specials():
-    return render_template('specials.html')
+    Specials = collections.OrderedDict(sorted(db.child('Seasonal Products').get().val().items()))
+    return render_template('specials.html', t=Specials.values())
 
 @app.route('/joinUs.html')
 def render_joinUs():
@@ -45,7 +46,10 @@ def render_about():
 @app.route('/supportUs.html')
 def render_support():
     Merch = collections.OrderedDict(sorted(db.child('Merch').get().val().items()))
-    return render_template('supportUs.html',t=Merch.values())
+    Specials_desc = db.child('Seasonal').child('Description').get().val()
+    Specials_photo = db.child('Seasonal').child('Photo_link').get().val()
+    Generic_desc = db.child('Merch').child('Generic Desc').get().val()
+    return render_template('supportUs.html',t=Merch.values(),S_desc = Specials_desc,S_photo = Specials_photo, G_desc = Generic_desc)
 
 @app.route('/upcomingEventsDeets.html',methods=['GET','POST'])
 def render_upcomingEvents():
@@ -113,12 +117,18 @@ def render_UI_updateAboutUs():
 @app.route('/UI_updateSupportUs.html')
 def render_UI_updateSupportUs():
     Merch = collections.OrderedDict(sorted(db.child('Merch').get().val().items())).values()
+    Seasonal_Products = collections.OrderedDict(sorted(db.child('Seasonal Products').get().val().items())).values()
+    Desc = db.child('Seasonal').child('Description').get().val()
     next_priority = 0
+    next_id = 0
     for i in Merch:
         if type(i) != type(''):
             next_priority = i['Priority']
-    next_priority = int(next_priority)+1
-    return render_template('UI_updateSupportUs.html', t=Merch, Next_priority=next_priority)
+    for i in Seasonal_Products:
+        if type(i) != type(''):
+            next_id_ = i['Id']
+    next_id = int(next_id_)+1
+    return render_template('UI_updateSupportUs.html', t=Merch, Next_priority=next_priority, spec_desc=Desc, s=Seasonal_Products, Next_id=next_id )
 
 @app.route('/UI_updateEvents.html')
 def render_UI_updateEvents():
@@ -172,6 +182,19 @@ def update_merch_item():
             db.child('Merch').child(request.form['old_priority']).update({'Item':request.form['item'],'Price':request.form['price'],'Photo Link':photo_link,'Link':request.form['link'], 'Priority':request.form['old_priority']})
         return redirect(url_for('render_UI_updateSupportUs'))
 
+@app.route('/update_special_merch_item',methods=['GET','POST'])
+def update_special_merch_item():
+    if request.method == 'POST':
+        if 'delete' in request.form:
+            db.child('Seasonal Products').child(request.form['id']).remove()
+        if 'update' in request.form:
+            #remember to apply the string modifications to the drive link
+            db.child('Seasonal Products').child(request.form['id']).remove()
+            photo_link_temp = request.form['photo_link'].replace('/view?usp=sharing','')
+            photo_link = photo_link_temp.replace('file/d/', 'uc?id=')
+            db.child('Seasonal Products').child(request.form['id']).update({'Name':request.form['name'],'Price':request.form['price'],'Pic Link':photo_link,'Link':request.form['link'], 'Id':request.form['id']})
+        return redirect(url_for('render_UI_updateSupportUs'))
+
 @app.route('/add_team_member',methods=['GET','POST'])
 def add_team_member():
     if request.method == 'POST':
@@ -186,6 +209,14 @@ def add_merch_item():
         photo_link_temp = request.form['photo_link'].replace('/view?usp=sharing','')
         photo_link = photo_link_temp.replace('file/d/', 'uc?id=')
         db.child('Merch').child(request.form['priority']).update({'Item':request.form['item'],'Price':request.form['price'],'Photo Link':photo_link,'Link':request.form['link'],'Priority':request.form['priority']})
+    return redirect(url_for('render_UI_updateSupportUs'))
+
+@app.route('/add_special_merch_item',methods=['GET','POST'])
+def add_special_merch_item():
+    if request.method == 'POST':
+        photo_link_temp = request.form['photo_link'].replace('/view?usp=sharing','')
+        photo_link = photo_link_temp.replace('file/d/', 'uc?id=')
+        db.child('Seasonal Products').child(request.form['id']).update({'Name':request.form['name'],'Price':request.form['price'],'Pic Link':photo_link,'Link':request.form['link'],'Id':request.form['id']})
     return redirect(url_for('render_UI_updateSupportUs'))
 
 @app.route('/go_to_index',methods=['GET','POST'])
@@ -241,6 +272,13 @@ def update_contact():
         Contact = request.form['contact']
         db.child('Contact').update({'Contact':Contact})
         return redirect(url_for('render_UI_updateContact'))
+
+@app.route('/update_special_desc',methods=['GET','POST'])
+def update_special_desc():
+    if request.method == 'POST':
+        Desc = request.form['special_desc']
+        db.child('Seasonal').update({'Description':Desc})
+        return redirect(url_for('render_UI_updateSupportUs'))
 
 @app.route('/update_address',methods=['GET','POST'])
 def update_address():
