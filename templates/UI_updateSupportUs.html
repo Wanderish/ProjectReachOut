@@ -83,6 +83,17 @@ input:focus {
   <body>
     <div>
     <h2>Update 'Merchandise'</h2>
+    <form name="merch_desc" action="update_merch_desc" method="post">
+      <h2>Update Description for Merchandise</h2>
+      <fieldset>
+        <p>{{ merch_desc }}</p>
+        <textarea placeholder="Paste Here"  name='merch_desc' type="text" tabindex="1" required autofocus>
+        </textarea>
+      </fieldset>
+      <fieldset>
+        <button class="green" name="submit" type="submit" id="desc-update" data-submit="...Sending">Update</button>
+      </fieldset>
+    </form>
     <fieldset>
     {% for l in t %}
       {% if 'Priority' in l %}
