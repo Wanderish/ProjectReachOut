@@ -148,14 +148,14 @@ def update_who_we_are():
     if request.method == 'POST':
         whoweare = request.form['WhoWeAre']
         db.update({'Who We Are':whoweare})
-        return redirect('UI_updateAboutUs.html')
+        return render_UI_updateAboutUs()
 
 @app.route('/update_how_we_work',methods=['GET','POST'])
 def update_how_we_work():
     if request.method == 'POST':
         howework = request.form['HowWeWork']
         db.update({'How We Work':howework})
-        return redirect('UI_updateAboutUs.html')
+        return render_UI_updateAboutUs()
 
 @app.route('/update_team_member',methods=['GET','POST'])
 def update_team_member():
@@ -168,7 +168,7 @@ def update_team_member():
             photo_link_temp = request.form['photo_link'].replace('/view?usp=sharing','')
             photo_link = photo_link_temp.replace('file/d/', 'uc?id=')
             db.child('Team').child(request.form['old_priority']).update({'Name':request.form['name'],'Post':request.form['post'],'Photo Link':photo_link,'Email':request.form['email'], 'Priority':request.form['old_priority']})
-        return redirect('UI_updateAboutUs.html')
+        return render_UI_updateAboutUs()
 
 @app.route('/update_merch_item',methods=['GET','POST'])
 def update_merch_item():
@@ -181,7 +181,7 @@ def update_merch_item():
             photo_link_temp = request.form['photo_link'].replace('/view?usp=sharing','')
             photo_link = photo_link_temp.replace('file/d/', 'uc?id=')
             db.child('Merch').child(request.form['old_priority']).update({'Item':request.form['item'],'Price':request.form['price'],'Photo Link':photo_link,'Link':request.form['link'], 'Priority':request.form['old_priority']})
-        return redirect('UI_updateSupportUs.html')
+        return render_UI_updateSupportUs()
 
 @app.route('/update_special_merch_item',methods=['GET','POST'])
 def update_special_merch_item():
@@ -194,7 +194,7 @@ def update_special_merch_item():
             photo_link_temp = request.form['photo_link'].replace('/view?usp=sharing','')
             photo_link = photo_link_temp.replace('file/d/', 'uc?id=')
             db.child('Seasonal Products').child(request.form['id']).update({'Name':request.form['name'],'Price':request.form['price'],'Pic Link':photo_link,'Link':request.form['link'], 'Id':request.form['id']})
-        return redirect('UI_updateSupportUs.html')
+        return render_UI_updateSupportUs()
 
 @app.route('/add_team_member',methods=['GET','POST'])
 def add_team_member():
@@ -202,7 +202,7 @@ def add_team_member():
         photo_link_temp = request.form['photo_link'].replace('/view?usp=sharing','')
         photo_link = photo_link_temp.replace('file/d/', 'uc?id=')
         db.child('Team').child(request.form['priority']).update({'Name':request.form['name'],'Post':request.form['post'],'Photo Link':photo_link,'Email':request.form['email'],'Priority':request.form['priority']})
-    return redirect('UI_updateAboutUs.html')
+    return render_UI_updateAboutUs()
 
 @app.route('/add_merch_item',methods=['GET','POST'])
 def add_merch_item():
@@ -210,7 +210,7 @@ def add_merch_item():
         photo_link_temp = request.form['photo_link'].replace('/view?usp=sharing','')
         photo_link = photo_link_temp.replace('file/d/', 'uc?id=')
         db.child('Merch').child(request.form['priority']).update({'Item':request.form['item'],'Price':request.form['price'],'Photo Link':photo_link,'Link':request.form['link'],'Priority':request.form['priority']})
-    return redirect('UI_updateSupportUs.html')
+    return render_UI_updateSupportUs()
 
 @app.route('/add_special_merch_item',methods=['GET','POST'])
 def add_special_merch_item():
@@ -218,12 +218,12 @@ def add_special_merch_item():
         photo_link_temp = request.form['photo_link'].replace('/view?usp=sharing','')
         photo_link = photo_link_temp.replace('file/d/', 'uc?id=')
         db.child('Seasonal Products').child(request.form['id']).update({'Name':request.form['name'],'Price':request.form['price'],'Pic Link':photo_link,'Link':request.form['link'],'Id':request.form['id']})
-    return redirect('UI_updateSupportUs.html')
+    return render_UI_updateSupportUs()
 
 @app.route('/go_to_index',methods=['GET','POST'])
 def go_to_index():
     if request.method == 'POST':
-        return redirect('UI_Index.html')
+        return render_UIindex()
 
 @app.route('/update_event',methods=['GET','POST'])
 def update_event():
@@ -244,7 +244,7 @@ def update_event():
                     db.child('Events').child(request.form['num']).update({'Title':request.form['title'],'Date':request.form['date'],'Description':request.form['description'],'Poster':poster,'Photos':request.form['old_link'], 'Num':request.form['num'], 'Venue':request.form['venue'], 'Time':request.form['time'], 'Form':request.form['form']})
             else:
                 db.child('Events').child(request.form['num']).update({'Title':request.form['title'],'Date':request.form['date'],'Description':request.form['description'],'Poster':poster, 'Num':request.form['num'],'Venue':request.form['venue'], 'Time':request.form['time'],'Form':request.form['form']})
-        return redirect('UI_updateEvents.html')
+        return render_UI_updateEvents()
 
 @app.route('/add_event',methods=['GET','POST'])
 def add_event():
@@ -257,7 +257,7 @@ def add_event():
             db.child('Events').child(request.form['num']).update({'Title':request.form['title'],'Date':request.form['date'],'Description':request.form['description'],'Poster':poster,'Photos':event_folder_link, 'Num':request.form['num'],'Venue':request.form['venue'], 'Time':request.form['time'], 'Form':request.form['form']})
         else:
             db.child('Events').child(request.form['num']).update({'Title':request.form['title'],'Date':request.form['date'],'Description':request.form['description'],'Poster':poster, 'Num':request.form['num'],'Venue':request.form['venue'], 'Time':request.form['time'], 'Form':request.form['form']})
-    return redirect('UI_updateEvents.html')
+    return render_UI_updateEvents()
 
 
 @app.route('/update_Footer',methods=['GET','POST'])
@@ -265,28 +265,28 @@ def update_Footer():
     if request.method == 'POST':
         About = request.form['about']
         db.update({'About':About})
-        return redirect('UI_updateFooter.html')
+        return render_UI_updateFooter()
 
 @app.route('/update_contact',methods=['GET','POST'])
 def update_contact():
     if request.method == 'POST':
         Contact = request.form['contact']
         db.child('Contact').update({'Contact':Contact})
-        return redirect('UI_updateContact.html')
+        return render_UI_updateContact()
 
 @app.route('/update_special_desc',methods=['GET','POST'])
 def update_special_desc():
     if request.method == 'POST':
         Desc = request.form['special_desc']
         db.child('Seasonal').update({'Description':Desc})
-        return redirect('UI_updateSupportUs.html')
+        return render_UI_updateSupportUs()
 
 @app.route('/update_merch_desc',methods=['GET','POST'])
 def update_merch_desc():
     if request.method == 'POST':
         Desc = request.form['merch_desc']
         db.child('Merch').update({'Generic Desc':Desc})
-        return redirect('UI_updateSupportUs.html')
+        return render_UI_updateSupportUs()
 
 @app.route('/update_address',methods=['GET','POST'])
 def update_address():
@@ -295,7 +295,7 @@ def update_address():
         line2 = request.form['line2']
         line3 = request.form['line3']
         db.child('Contact').child('Address').update({'Line1':line1, 'Line2':line2, 'Line3':line3})
-        return redirect('UI_updateContact.html')
+        return render_UI_updateContact()
 
 if __name__=='__main__':
     app.run(debug=True)
