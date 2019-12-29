@@ -102,9 +102,9 @@ input:focus {
              If Some Post is to be modified, better to use update itself!!-->
         <fieldset>
           <fieldset>
-            <h4>Priority Number</h4>
+            <!-- <h4>Priority Number</h4> -->
             <input hidden value={{ l["Priority"] }} name='old_priority' type='text'>
-            <p>{{ l["Priority"] }} </p>
+            <!-- <p>{{ l["Priority"] }} </p> -->
           </fieldset>
           <fieldset>
             <h4>Item Name</h4>
@@ -170,6 +170,10 @@ input:focus {
         <p>{{ spec_desc }}</p>
         <textarea placeholder="Paste Here"  name='special_desc' type="text" tabindex="1" required autofocus>
         </textarea>
+      </fieldset>
+      <fieldset>
+        <h4>Google Drive Photo Link of the special merch main photo</h4>
+        <input placeholder={{ S_link }} value='{{ S_link }}' name='photo_link' tabindex="1" >
       </fieldset>
       <fieldset>
         <button class="green" name="submit" type="submit" id="special_desc-update" data-submit="...Sending">Update</button>

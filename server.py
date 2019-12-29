@@ -119,6 +119,7 @@ def render_UI_updateSupportUs():
     Merch = collections.OrderedDict(sorted(db.child('Merch').get().val().items())).values()
     Seasonal_Products = collections.OrderedDict(sorted(db.child('Seasonal Products').get().val().items())).values()
     S_Desc = db.child('Seasonal').child('Description').get().val()
+    S_link = db.child('Seasonal').child('Photo_link').get().val()
     Desc = db.child('Merch').child('Generic Desc').get().val()
     next_priority = 0
     next_id = 0
@@ -129,7 +130,7 @@ def render_UI_updateSupportUs():
         if type(i) != type(''):
             next_id_ = i['Id']
     next_id = int(next_id_)+1
-    return render_template('UI_updateSupportUs.html', t=Merch, Next_priority=next_priority, spec_desc=S_Desc, s=Seasonal_Products, Next_id=next_id, merch_desc=Desc )
+    return render_template('UI_updateSupportUs.html', t=Merch, Next_priority=next_priority, spec_desc=S_Desc, s=Seasonal_Products, Next_id=next_id, merch_desc=Desc, S_link = S_link )
 
 @app.route('/UI_updateEvents.html')
 def render_UI_updateEvents():
@@ -278,7 +279,8 @@ def update_contact():
 def update_special_desc():
     if request.method == 'POST':
         Desc = request.form['special_desc']
-        db.child('Seasonal').update({'Description':Desc})
+        Link = request.form['photo_link']
+        db.child('Seasonal').update({'Description':Desc},{'Photo_link':Link})
         return render_UI_updateSupportUs()
 
 @app.route('/update_merch_desc',methods=['GET','POST'])
