@@ -52,7 +52,7 @@
       margin-bottom: 5px;
       font-size: 20px;
       line-height: 2;
-      
+
       }
       .content p {
       margin-bottom: 5px;
@@ -88,7 +88,7 @@
       font-weight: 300;
       -webkit-font-smoothing: antialiased;
       }
-      @media screen and (max-width: 760px) {
+      @media screen and (max-width: 766px) {
         .flex-container{
           flex-flow: column;
           margin: 10px;
@@ -105,7 +105,65 @@
           text-align: center;
           padding-left: 10px;
         }
+        .content p {
+        margin-bottom: 5px;
+        font-size: 20px;
+        line-height: 2;
+        white-space: nowrap;
+        width: 300px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        }
       }
+      @media screen and (min-width: 767px) and (max-width: 1024px) {
+        .flex-container{
+          flex-flow: column;
+          margin: 10px;
+        }
+        .poster img{
+          margin-left: 0;
+          align-self: center;
+          padding-bottom: 0;
+        }
+        p{
+          padding-left: 10px;
+        }
+        .content h1 h3{
+          text-align: center;
+          padding-left: 10px;
+        }
+        .content p {
+        margin-bottom: 5px;
+        font-size: 20px;
+        line-height: 2;
+        white-space: nowrap;
+        width: 700px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        }
+      }
+      /* @media screen and (max-width: 770px) {
+        .content p {
+        margin-bottom: 5px;
+        font-size: 20px;
+        line-height: 2;
+        white-space: nowrap;
+        width: 100px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        }
+      }
+      @media screen and (max-width: 1024px){
+        .content p {
+        margin-bottom: 5px;
+        font-size: 20px;
+        line-height: 2;
+        white-space: nowrap;
+        width: 700px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        }
+      } */
 
     }
     </style>
