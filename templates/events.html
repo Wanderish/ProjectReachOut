@@ -50,8 +50,21 @@
       /* content styling */
       p {
       margin-bottom: 5px;
-      font-size: 17px;
+      font-size: 20px;
       line-height: 2;
+
+      }
+      .content p {
+      margin-bottom: 5px;
+      font-size: 20px;
+      line-height: 2;
+      white-space: nowrap;
+      width: 950px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      }
+      .content a{
+        font-size: 20px;
       }
       .content {
       padding: 50px 2% 50px;
@@ -75,7 +88,7 @@
       font-weight: 300;
       -webkit-font-smoothing: antialiased;
       }
-      @media screen and (max-width: 760px) {
+      @media screen and (max-width: 766px) {
         .flex-container{
           flex-flow: column;
           margin: 10px;
@@ -92,7 +105,65 @@
           text-align: center;
           padding-left: 10px;
         }
+        .content p {
+        margin-bottom: 5px;
+        font-size: 20px;
+        line-height: 2;
+        white-space: nowrap;
+        width: 300px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        }
       }
+      @media screen and (min-width: 767px) and (max-width: 1024px) {
+        .flex-container{
+          flex-flow: column;
+          margin: 10px;
+        }
+        .poster img{
+          margin-left: 0;
+          align-self: center;
+          padding-bottom: 0;
+        }
+        p{
+          padding-left: 10px;
+        }
+        .content h1 h3{
+          text-align: center;
+          padding-left: 10px;
+        }
+        .content p {
+        margin-bottom: 5px;
+        font-size: 20px;
+        line-height: 2;
+        white-space: nowrap;
+        width: 700px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        }
+      }
+      /* @media screen and (max-width: 770px) {
+        .content p {
+        margin-bottom: 5px;
+        font-size: 20px;
+        line-height: 2;
+        white-space: nowrap;
+        width: 100px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        }
+      }
+      @media screen and (max-width: 1024px){
+        .content p {
+        margin-bottom: 5px;
+        font-size: 20px;
+        line-height: 2;
+        white-space: nowrap;
+        width: 700px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        }
+      } */
 
     }
     </style>
@@ -115,8 +186,8 @@
         <h1 class="title">{{l['Title']}}</h1>
         <h3 class="date">Date : {{l['Date']}}</h3>
         <h3 class="venue">Venue: {{l['Venue']}}</h3>
-        <p>{{l['Description']}}
-        <a href='{{url_for('render_previousEvents', type=l['Num'])}}'>More...</a> </p>
+        <p id="smallDesc">{{l['Description']}} </p>
+        <a href='{{url_for('render_previousEvents', type=l['Num'])}}'>More...</a>
       </div>
     </div>
     {% endif %}
@@ -124,5 +195,6 @@
 <!-- loop  -->
 
     {% endblock %}
+
   </body>
 </html>
