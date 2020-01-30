@@ -122,7 +122,7 @@ def render_UI_updateSupportUs():
     S_link = db.child('Seasonal').child('Photo_link').get().val()
     Desc = db.child('Merch').child('Generic Desc').get().val()
     next_priority = 0
-    next_id = 0
+    next_id_ = 0
     for i in Merch:
         if type(i) != type(''):
             next_priority = i['Priority']
