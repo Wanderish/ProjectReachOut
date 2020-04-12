@@ -262,7 +262,7 @@
                         <h3 class="date">Date : {{event['Date']}}</h3>
                         <h3 class="venue">Venue: {{event['Venue']}}</h3>
                         <p id="smallDesc">{{event['Description']}} </p>
-                        <a href='#'>More...</a>
+                        <a href='{{ url_for('render_previousEvents', type=event['Num']) }}'>More...</a>
                     </div>
                 </div>
             </li>
